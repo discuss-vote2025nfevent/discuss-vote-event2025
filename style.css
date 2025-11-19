@@ -1,103 +1,163 @@
-/* -------------------------------------
-   全体の基本デザイン（ポップな雰囲気）
-------------------------------------- */
+/* style.css
+   Monochrome / Stylish theme
+   Responsive, accessible accordion
+*/
 
-body {
-    font-family: "Noto Sans JP", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f9ff; /* 明るい水色背景 */
-    color: #333;
+:root{
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #222222; /* subtle darker accent */
+  --card-shadow: rgba(0,0,0,0.06);
+  --radius: 12px;
+  --max-width: 920px;
 }
 
-/* コンテンツ中央寄せ */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
 }
 
-/* タイトル */
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    padding: 20px 0;
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* page container */
+.container{
+  width:94%;
+  max-width:var(--max-width);
+  margin:28px auto;
+  padding:0 8px;
 }
 
-/* サブタイトル */
-h2 {
-    margin-top: 30px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #00bfff; 
+/* header / title */
+.header {
+  text-align:center;
+  margin-bottom:18px;
+}
+.title {
+  font-weight:700;
+  font-size:1.55rem;
+  letter-spacing:0.01em;
+  color:var(--accent);
+  margin:4px 0;
+}
+.subtitle {
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-top:6px;
 }
 
-/* ナビメニュー */
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background: #ffffff;
-    padding: 15px 0;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+/* logo */
+.logo-wrap{
+  display:flex;
+  justify-content:center;
+  margin:18px 0;
+}
+.header-logo{
+  width:220px;
+  max-width:60%;
+  height:auto;
+  border-radius:10px;
+  box-shadow: 0 6px 18px var(--card-shadow);
+  background:linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #007acc;
-    font-weight: bold;
-    background: #e0f7ff;
-    padding: 10px 18px;
-    border-radius: 20px;
-    transition: 0.2s;
+/* navbar (simple, compact) */
+.navbar{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:18px 0 28px;
+  flex-wrap:wrap;
+}
+.navbar a{
+  text-decoration:none;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:999px;
+  background:transparent;
+  color:var(--text);
+  border:1px solid rgba(17,17,17,0.06);
+  font-weight:600;
+  font-size:0.95rem;
+  transition: all .18s ease;
+}
+.navbar a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
 }
 
-.navbar a:hover {
-    background: #bdeaff;
+/* card */
+.card{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  margin-bottom:20px;
+  border: 1px solid rgba(17,17,17,0.03);
 }
 
-/* カード風コンテナ */
-.box {
-    background: #ffffff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+/* section title */
+.section-title{
+  font-size:1.15rem;
+  color:var(--accent);
+  margin-bottom:12px;
+  font-weight:700;
 }
 
-/* ボタン */
-button {
-    padding: 10px 15px;
-    border: none;
-    background: #00bfff;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
+/* mini headings in card */
+.h3{
+  font-weight:700;
+  margin:12px 0 8px;
+  color:var(--text);
+  font-size:0.98rem;
 }
 
-button:hover {
-    background: #0099cc;
+/* accordion (accessible) */
+.accordion {
+  width:100%;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.06);
+  display:block;
+  padding:12px 14px;
+  text-align:left;
+  cursor:pointer;
+  font-size:0.98rem;
+  font-weight:700;
+  color:var(--text);
+  margin:8px 0;
+}
+.accordion:focus{outline: 3px solid rgba(0,0,0,0.06)}
+.accordion-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.accordion .chev{
+  width:18px; height:18px;
+  display:inline-block;
+  transform:rotate(0deg);
+  transition: transform .18s ease;
+  opacity:.8;
 }
 
-/* パネリスト一覧 */
-.panelist-list button {
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-    text-align: left;
-    background: #e8f6ff;
-    color: #004d80;
+/* content area (hidden by default) */
+.accordion-content{
+  display:none;
+  padding:14px;
+  background:linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  border-left:3px solid rgba(0,0,0,0.04);
+  margin-bottom:12px;
+  border-radius:0 0 10px 10px;
+  color:var(--muted);
+  font-size:0.95rem;
 }
-
-/* 回答表示エリア */
-.answer-area {
-    margin-top: 15px;
-    padding: 15px;
-    background: #f9feff;
-    border-left: 4px solid #00bfff;
-    border-radius: 8px;
-}
+.accordion[aria-expanded="true"] + .ac
