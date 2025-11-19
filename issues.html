@@ -15,23 +15,78 @@
 
     <nav class="navbar" aria-label="ページメニュー">
       <a href="index.html">トップ</a>
-      <a href="answers.html">質問回答（パネリスト）</a>
+      <a href="answers.html">質問回答</a>
       <a href="glossary.html">用語解説</a>
     </nav>
 
-    <section class="card">
-      <h3 class="h3">物価高対策</h3>
-      <!-- ここに物価高対策の説明テキストを入れてください -->
-      <p class="muted">現在、政治におけるSNSの存在感が強まっています。SNSで政治に絡んだ問題としては誹謗中傷とフェイクニュースが大きな問題となっています。SNSで真偽の定かでない情報が出回ることで混乱が起きたり、それが個人の尊厳を傷つけることがあります。また、SNSが匿名空間ということもあり、自分とは考えの違う人や自分の気にいらない人への誹謗中傷も問題になっています。こうした問題に対処するためにSNSの規制システムを導入すべきではないか、という意見があります。しかし、こうしたことを行えば、憲法に記載されている表現の自由に触れるのではないか、と言われています。</p>
-    </section>
+    <div class="card">
+      <div class="tabs" role="tablist" aria-label="争点タブ">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-price">物価高対策</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-sns">SNS規制</button>
+      </div>
 
-    <section class="card">
-      <h3 class="h3">SNS規制</h3>
-      <!-- ここにSNS規制の説明テキストを入れてください -->
-      <p class="muted"></p>近年の物価高は、ウクライナ情勢に伴うエネルギー価格の上昇、円安の進行、原材料費や輸送コストの増加などが主な要因とされています。政府は物価高対策として、電気・ガス・ガソリン代への補助、低所得世帯への給付金支給、減税、輸入小麦価格の据え置きなどを実施しています。また、企業側では価格転嫁の動きが広がり、賃上げやコスト削減を通じた対応も進みます。これらの措置により、消費者物価指数（CPI）の上昇率は一時的に緩和傾向を示す場面もあるが、エネルギーや食料品を中心に高止まりが続いています。
-    </section>
+      <!-- TAB: 物価高対策 -->
+      <div id="tab-price" class="tab-panel active" role="tabpanel">
+        <div class="section-title">物価高対策 - 解説</div>
+        <p class="muted">ここに物価高対策の解説テキストを入れてください。政策背景、期待される効果、論点などを整理して記載します。</p>
+
+        <div class="section-title" style="margin-top:14px">関連図・説明</div>
+        <div class="img-set">
+          <div class="img-card">
+            <img src="img/highprice-1.png" alt="物価高対策イメージ1">
+            <div class="img-caption">（図1）ここに画像1の説明文を入れてください。</div>
+          </div>
+          <div class="img-card">
+            <img src="img/highprice-2.png" alt="物価高対策イメージ2">
+            <div class="img-caption">（図2）ここに画像2の説明文を入れてください。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: SNS規制 -->
+      <div id="tab-sns" class="tab-panel" role="tabpanel">
+        <div class="section-title">SNS規制 - 解説</div>
+        <p class="muted">ここにSNS規制の解説テキストを入れてください。表現の自由とのバランス、既存の規制案、懸念点などを整理して記載します。</p>
+
+        <div class="section-title" style="margin-top:14px">関連図・説明</div>
+        <div class="img-set">
+          <div class="img-card">
+            <img src="img/sns-1.png" alt="SNS規制イメージ1">
+            <div class="img-caption">（図1）ここに画像1の説明文を入れてください。</div>
+          </div>
+          <div class="img-card">
+            <img src="img/sns-2.png" alt="SNS規制イメージ2">
+            <div class="img-caption">（図2）ここに画像2の説明文を入れてください。</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     <div class="footer">© Discuss × Vote Event 2025</div>
   </main>
+
+<script>
+/* simple tab behavior */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=> {
+    const target = btn.dataset.target;
+    // toggle buttons
+    document.querySelectorAll('.tab-btn').forEach(b=>{
+      b.classList.remove('active');
+      b.setAttribute('aria-selected','false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+    // panels
+    document.querySelectorAll('.tab-panel').forEach(p=>{
+      p.classList.remove('active');
+    });
+    const panel = document.getElementById(target);
+    if(panel) panel.classList.add('active');
+  });
+});
+</script>
+
 </body>
 </html>
