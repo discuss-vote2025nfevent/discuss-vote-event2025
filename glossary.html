@@ -16,27 +16,49 @@
     <nav class="navbar" aria-label="ページメニュー">
       <a href="index.html">トップ</a>
       <a href="issues.html">争点解説</a>
-      <a href="answers.html">質問回答（パネリスト）</a>
+      <a href="answers.html">質問回答</a>
     </nav>
 
-    <section class="card">
-      <div class="section-title">物価高対策の用語</div>
-      <div class="glossary-item"><strong>インフレ</strong><div>物価が継続的に上がること。</div></div>
-      <div class="glossary-item"><strong>緊急経済対策</strong><div>短期的に需要や供給に介入する政策。</div></div>
-    </section>
+    <section class="card glossary-accordion">
+      <button class="gloss-btn" data-target="g-price">▼ 物価高対策の用語 <span aria-hidden>▪</span></button>
+      <div id="g-price" class="glossary-content">
+        <!-- ここに約20個の用語を追加してください -->
+        <div class="glossary-item"><strong>インフレ：</strong>物価が継続的に上昇する状態。</div>
+        <div class="glossary-item"><strong>需給ギャップ：</strong>需要と供給のバランスの差。</div>
+        <!-- ... -->
+      </div>
 
-    <section class="card">
-      <div class="section-title">SNS規制の用語</div>
-      <div class="glossary-item"><strong>表現の自由</strong><div>意見を自由に述べられる権利。</div></div>
-      <div class="glossary-item"><strong>デマ対策</strong><div>偽情報に対する取り組み。</div></div>
-    </section>
+      <button class="gloss-btn" data-target="g-sns">▼ SNS規制の用語 <span aria-hidden>▪</span></button>
+      <div id="g-sns" class="glossary-content">
+        <div class="glossary-item"><strong>表現の自由：</strong>意見を自由に述べる権利。</div>
+        <div class="glossary-item"><strong>誹謗中傷：</strong>個人の名誉を毀損する発言など。</div>
+        <!-- ... -->
+      </div>
 
-    <section class="card">
-      <div class="section-title">自由トピックの用語</div>
-      <div class="glossary-item"><strong>政策アジェンダ</strong><div>優先的に取り組む政策テーマ。</div></div>
+      <button class="gloss-btn" data-target="g-free">▼ 自由トピックの用語 <span aria-hidden>▪</span></button>
+      <div id="g-free" class="glossary-content">
+        <div class="glossary-item"><strong>政策アジェンダ：</strong>優先的に取り組む政策テーマ。</div>
+        <!-- ... -->
+      </div>
     </section>
 
     <div class="footer">© Discuss × Vote Event 2025</div>
   </main>
+
+<script>
+/* glossary toggle */
+document.querySelectorAll('.gloss-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const target = btn.dataset.target;
+    const el = document.getElementById(target);
+    if(!el) return;
+    const visible = el.style.display === 'block';
+    el.style.display = visible ? 'none' : 'block';
+    // scroll into view if opening
+    if(!visible) el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+
 </body>
 </html>
