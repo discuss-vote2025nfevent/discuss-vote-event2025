@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>質問回答（パネリスト） - 議論×投票</title>
+  <title>質問回答 - 議論×投票</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
     <header class="header">
-      <div class="title">質問回答（パネリスト）</div>
-      <div class="subtitle">以下の質問に対する各パネリストの回答を掲載しています。名前をタップして展開してください。</div>
+      <div class="title">質問回答</div>
+      <div class="subtitle">以下の質問に関して、各パネリストの回答を掲載しています。名前をタップして回答を表示してください。</div>
     </header>
 
     <nav class="navbar" aria-label="ページメニュー">
@@ -20,50 +20,37 @@
     </nav>
 
     <section class="card">
-      <div class="section-title">質問（共通）</div>
-      <div class="h3">【物価高対策】</div>
-      <ol>
-        <li>Q1：物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
-        <li>Q2：物価高対策について、ご登壇者様ご自身の政策の狙い又は利点をお書きください。</li>
-        <li>Q3：物価高対策について、ご登壇者様ご自身の政策の課題についてお書きください。</li>
-      </ol>
-
-      <div class="h3">【SNS規制】</div>
-      <ol>
-        <li>Q1：SNS規制について…（長文略）ご自身の政策の理念をキャッチコピーで表現してください。</li>
-        <li>Q2：SNS規制について、ご自身の政策の背景と狙い又は利点をお書きください。</li>
-        <li>Q3：SNS規制について、ご自身の政策の課題についてお書きください。</li>
-      </ol>
-
-      <div class="h3">【自由トピック】</div>
-      <p>ご登壇者様ご自身の最も伝えたい政策についてお書きください。</p>
+      <div class="section-title">共通の質問（Q1 - Q7）</div>
+      <div class="questions-box">
+        <ol>
+          <li>Q1：物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+          <li>Q2：物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
+          <li>Q3：物価高対策について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+          <li>Q4：SNS規制について、SNSはフェイクニュース・誹謗中傷等の問題があることからSNS規制を進めるべきだという声がある一方、表現の自由の保障に関する懸念の声もあります。これを踏まえ、SNS規制の是非を含めてどのような政策を取られますか。ご登壇者様ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+          <li>Q5：SNS規制について、ご登壇者ご自身の政策の背景と狙い又は利点をお書きください。</li>
+          <li>Q6：SNS規制について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+          <li>Q7：ご登壇者様ご自身の最も伝えたい政策についてお書きください（自由トピック）。</li>
+        </ol>
+      </div>
     </section>
 
     <section class="card">
-      <div class="section-title">パネリスト 一覧（タップで回答を表示）</div>
+      <div class="section-title">パネリスト 一覧（タップして回答を表示）</div>
 
-      <!-- 以下のブロックを複製して11名分作成してください -->
-      <!-- 例：パネリストA -->
-      <button class="panelist-list name-btn" aria-expanded="false" data-target="p-a">パネリストA</button>
-      <div id="p-a" class="answer-box" hidden>
-        <strong>物価高対策 Q1：</strong>
-        <p>（ここに回答を入れてください）</p>
-        <strong>物価高対策 Q2：</strong>
-        <p>（ここに回答）</p>
-        <strong>物価高対策 Q3：</strong>
-        <p>（ここに回答）</p>
-
-        <strong>SNS規制 Q1：</strong>
-        <p>（ここに回答）</p>
-        <strong>SNS規制 Q2：</strong>
-        <p>（ここに回答）</p>
-        <strong>SNS規制 Q3：</strong>
-        <p>（ここに回答）</p>
-
-        <strong>自由トピック：</strong>
-        <p>（ここに回答）</p>
+      <!-- ====== パネリストテンプレート（複製して11名分作成） ====== -->
+      <!-- パネリスト1 -->
+      <button class="panelist-list name-btn" data-target="p-1" aria-expanded="false">パネリスト1</button>
+      <div id="p-1" class="answer-box" hidden>
+        <strong>Q1：</strong><div>（ここに回答を入れてください）</div>
+        <strong>Q2：</strong><div>（ここに回答）</div>
+        <strong>Q3：</strong><div>（ここに回答）</div>
+        <strong>Q4：</strong><div>（ここに回答）</div>
+        <strong>Q5：</strong><div>（ここに回答）</div>
+        <strong>Q6：</strong><div>（ここに回答）</div>
+        <strong>Q7：</strong><div>（ここに回答）</div>
       </div>
-      <!-- ↑↑ ここまでを複製 -->
+
+      <!-- 複製してパネリスト2..11 を作成してください（id を p-2, p-3 ... に変更） -->
 
     </section>
 
@@ -71,12 +58,13 @@
   </main>
 
 <script>
-/* Toggle panelist answers (accessible) */
+/* name button -> toggle corresponding answer box (previous format) */
 document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    const targetId = btn.dataset.target;
-    if(!targetId) return;
-    const el = document.getElementById(targetId);
+    const target = btn.dataset.target;
+    if(!target) return;
+    const el = document.getElementById(target);
+    if(!el) return;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     if(expanded){
       btn.setAttribute('aria-expanded','false');
@@ -84,7 +72,6 @@ document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
     } else {
       btn.setAttribute('aria-expanded','true');
       el.hidden = false;
-      /* scroll into view on small screens */
       el.scrollIntoView({behavior:'smooth', block:'start'});
     }
   });
@@ -93,4 +80,3 @@ document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
 
 </body>
 </html>
-
