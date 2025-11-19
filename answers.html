@@ -1,46 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>回答一覧</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>質問回答（パネリスト） - 議論×投票</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="container">
+    <header class="header">
+      <div class="title">質問回答（パネリスト）</div>
+      <div class="subtitle">以下の質問に対する各パネリストの回答を掲載しています。名前をタップして展開してください。</div>
+    </header>
 
-<div class="container">
+    <nav class="navbar" aria-label="ページメニュー">
+      <a href="index.html">トップ</a>
+      <a href="issues.html">争点解説</a>
+      <a href="glossary.html">用語解説</a>
+    </nav>
 
-    <h2 class="section-title">登壇者 回答一覧</h2>
+    <section class="card">
+      <div class="section-title">質問（共通）</div>
+      <div class="h3">【物価高対策】</div>
+      <ol>
+        <li>Q1：物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+        <li>Q2：物価高対策について、ご登壇者様ご自身の政策の狙い又は利点をお書きください。</li>
+        <li>Q3：物価高対策について、ご登壇者様ご自身の政策の課題についてお書きください。</li>
+      </ol>
 
-    <!-- ▼▼ 以下、11名分をコピペで増やせます ▼▼ -->
+      <div class="h3">【SNS規制】</div>
+      <ol>
+        <li>Q1：SNS規制について…（長文略）ご自身の政策の理念をキャッチコピーで表現してください。</li>
+        <li>Q2：SNS規制について、ご自身の政策の背景と狙い又は利点をお書きください。</li>
+        <li>Q3：SNS規制について、ご自身の政策の課題についてお書きください。</li>
+      </ol>
 
-    <div class="accordion">【政治家Aさん】回答を見る</div>
-    <div class="accordion-content">
-        <p><strong>物価高対策 Q1：</strong> ここに回答</p>
-        <p><strong>物価高対策 Q2：</strong> ここに回答</p>
-        <p><strong>物価高対策 Q3：</strong> ここに回答</p>
+      <div class="h3">【自由トピック】</div>
+      <p>ご登壇者様ご自身の最も伝えたい政策についてお書きください。</p>
+    </section>
 
-        <p><strong>SNS規制 Q1：</strong> ここに回答</p>
-        <p><strong>SNS規制 Q2：</strong> ここに回答</p>
-        <p><strong>SNS規制 Q3：</strong> ここに回答</p>
+    <section class="card">
+      <div class="section-title">パネリスト 一覧（タップで回答を表示）</div>
 
-        <p><strong>自由トピック：</strong> ここに回答</p>
-    </div>
+      <!-- 以下のブロックを複製して11名分作成してください -->
+      <!-- 例：パネリストA -->
+      <button class="panelist-list name-btn" aria-expanded="false" data-target="p-a">パネリストA</button>
+      <div id="p-a" class="answer-box" hidden>
+        <strong>物価高対策 Q1：</strong>
+        <p>（ここに回答を入れてください）</p>
+        <strong>物価高対策 Q2：</strong>
+        <p>（ここに回答）</p>
+        <strong>物価高対策 Q3：</strong>
+        <p>（ここに回答）</p>
 
-    <!-- ↑↑ このブロックを11名ぶん繰り返す ↑↑ -->
+        <strong>SNS規制 Q1：</strong>
+        <p>（ここに回答）</p>
+        <strong>SNS規制 Q2：</strong>
+        <p>（ここに回答）</p>
+        <strong>SNS規制 Q3：</strong>
+        <p>（ここに回答）</p>
 
-</div>
+        <strong>自由トピック：</strong>
+        <p>（ここに回答）</p>
+      </div>
+      <!-- ↑↑ ここまでを複製 -->
 
-<div class="footer">© Discuss × Vote Event 2025</div>
+    </section>
+
+    <div class="footer">© Discuss × Vote Event 2025</div>
+  </main>
 
 <script>
-document.querySelectorAll('.accordion').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle('show');
-    });
+/* Toggle panelist answers (accessible) */
+document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const targetId = btn.dataset.target;
+    if(!targetId) return;
+    const el = document.getElementById(targetId);
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if(expanded){
+      btn.setAttribute('aria-expanded','false');
+      el.hidden = true;
+    } else {
+      btn.setAttribute('aria-expanded','true');
+      el.hidden = false;
+      /* scroll into view on small screens */
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
 });
 </script>
 
 </body>
 </html>
+
