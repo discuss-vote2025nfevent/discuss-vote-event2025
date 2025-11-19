@@ -1,91 +1,103 @@
-/* ====== 全体設定 ====== */
+/* -------------------------------------
+   全体の基本デザイン（ポップな雰囲気）
+------------------------------------- */
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  background: #ffffff;
-  color: #111;
-  line-height: 1.6;
+    font-family: "Noto Sans JP", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f9ff; /* 明るい水色背景 */
+    color: #333;
 }
 
-/* コンテナ（スマホ中心） */
+/* コンテンツ中央寄せ */
 .container {
-  width: 90%;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* ====== ヘッダー（ロゴ） ====== */
-.header-logo {
-  width: 100%;
-  max-width: 360px;
-  display: block;
-  margin: 20px auto;
+/* タイトル */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px 0;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* ====== メニュー ====== */
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 30px 0;
+/* サブタイトル */
+h2 {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #00bfff; 
 }
 
-.menu a {
-  text-decoration: none;
-  background: #111;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 8px;
-  transition: 0.2s;
+/* ナビメニュー */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #ffffff;
+    padding: 15px 0;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.menu a:hover {
-  background: #333;
+.navbar a {
+    text-decoration: none;
+    color: #007acc;
+    font-weight: bold;
+    background: #e0f7ff;
+    padding: 10px 18px;
+    border-radius: 20px;
+    transition: 0.2s;
 }
 
-/* ====== セクションタイトル ====== */
-.section-title {
-  font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-left: 6px solid #111;
-  padding-left: 10px;
+.navbar a:hover {
+    background: #bdeaff;
 }
 
-/* ====== アコーディオン（タップで開く項目） ====== */
-.accordion {
-  background: #f3f3f3;
-  border: 1px solid #ccc;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  cursor: pointer;
+/* カード風コンテナ */
+.box {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.accordion:hover {
-  background: #e9e9e9;
+/* ボタン */
+button {
+    padding: 10px 15px;
+    border: none;
+    background: #00bfff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.accordion-content {
-  display: none;
-  padding: 10px;
-  border-left: 3px solid #111;
-  margin-bottom: 10px;
+button:hover {
+    background: #0099cc;
 }
 
-/* 表示切り替え用（JSで） */
-.show {
-  display: block;
+/* パネリスト一覧 */
+.panelist-list button {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    text-align: left;
+    background: #e8f6ff;
+    color: #004d80;
 }
 
-/* ====== フッター ====== */
-.footer {
-  text-align: center;
-  color: #555;
-  margin: 30px 0 20px 0;
-  font-size: 14px;
+/* 回答表示エリア */
+.answer-area {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f9feff;
+    border-left: 4px solid #00bfff;
+    border-radius: 8px;
 }
