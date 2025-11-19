@@ -1,80 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>質問回答 - 議論×投票</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>質問回答</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main class="container">
-    <header class="header">
-      <div class="title">質問回答</div>
-      <div class="subtitle">以下の質問に関して、各パネリストの回答を掲載しています。名前をタップして回答を表示してください。</div>
-    </header>
+<header>
+    <h1>質問回答</h1>
+</header>
 
-    <nav class="navbar" aria-label="ページメニュー">
-      <a href="index.html">トップ</a>
-      <a href="issues.html">争点解説</a>
-      <a href="glossary.html">用語解説</a>
-    </nav>
+<main class="container">
 
-    <section class="card">
-      <div class="section-title">共通の質問（Q1 - Q7）</div>
-      <div class="questions-box">
-        <ol>
-          <li>Q1：物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
-          <li>Q2：物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
-          <li>Q3：物価高対策について、ご登壇者ご自身の政策の課題についてお書きください。</li>
-          <li>Q4：SNS規制について、SNSはフェイクニュース・誹謗中傷等の問題があることからSNS規制を進めるべきだという声がある一方、表現の自由の保障に関する懸念の声もあります。これを踏まえ、SNS規制の是非を含めてどのような政策を取られますか。ご登壇者様ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
-          <li>Q5：SNS規制について、ご登壇者ご自身の政策の背景と狙い又は利点をお書きください。</li>
-          <li>Q6：SNS規制について、ご登壇者ご自身の政策の課題についてお書きください。</li>
-          <li>Q7：ご登壇者様ご自身の最も伝えたい政策についてお書きください（自由トピック）。</li>
-        </ol>
-      </div>
+    <!-- 質問文（上部固定） -->
+    <section class="question-box">
+        <h2>質問文</h2>
+        <ul class="question-list">
+            <li><strong>Q1.</strong> 物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーを書いてください。</li>
+            <li><strong>Q2.</strong> 物価高対策について、ご登壇者ご自身の政策の狙い・利点を書いてください。</li>
+            <li><strong>Q3.</strong> 物価高対策について、ご登壇者ご自身の政策の課題を書いてください。</li>
+
+            <li><strong>Q4.</strong> SNS規制について：フェイクニュース等の問題と表現の自由のバランスを踏まえ、どのような政策理念を持つか。キャッチコピーを書いてください。</li>
+            <li><strong>Q5.</strong> SNS規制について、ご自身の政策の背景、狙い・利点を書いてください。</li>
+            <li><strong>Q6.</strong> SNS規制について、ご自身の政策の課題を書いてください。</li>
+
+            <li><strong>Q7.</strong> 自由トピック：最も伝えたい政策を書いてください。</li>
+        </ul>
     </section>
 
-    <section class="card">
-      <div class="section-title">パネリスト 一覧（タップして回答を表示）</div>
-
-      <!-- ====== パネリストテンプレート（複製して11名分作成） ====== -->
-      <!-- パネリスト1 -->
-      <button class="panelist-list name-btn" data-target="p-1" aria-expanded="false">パネリスト1</button>
-      <div id="p-1" class="answer-box" hidden>
-        <strong>Q1：</strong><div>（ここに回答を入れてください）</div>
-        <strong>Q2：</strong><div>（ここに回答）</div>
-        <strong>Q3：</strong><div>（ここに回答）</div>
-        <strong>Q4：</strong><div>（ここに回答）</div>
-        <strong>Q5：</strong><div>（ここに回答）</div>
-        <strong>Q6：</strong><div>（ここに回答）</div>
-        <strong>Q7：</strong><div>（ここに回答）</div>
-      </div>
-
-      <!-- 複製してパネリスト2..11 を作成してください（id を p-2, p-3 ... に変更） -->
-
+    <!-- パネリスト一覧（元の形式を維持） -->
+    <section>
+        <h2>パネリスト一覧</h2>
+        <div class="panelist-list">
+            <!-- ▼ここに名前 → 回答 の形式でコピペして入力していく箇所 -->
+            <!-- 例）
+            <div class="panelist">
+                <button class="panelist-btn">山田太郎</button>
+                <div class="panelist-content">
+                    <p><strong>Q1:</strong> 回答文...</p>
+                    <p><strong>Q2:</strong> 回答文...</p>
+                    ...
+                </div>
+            </div>
+            -->
+        </div>
     </section>
 
-    <div class="footer">© Discuss × Vote Event 2025</div>
-  </main>
+</main>
 
 <script>
-/* name button -> toggle corresponding answer box (previous format) */
-document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const target = btn.dataset.target;
-    if(!target) return;
-    const el = document.getElementById(target);
-    if(!el) return;
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    if(expanded){
-      btn.setAttribute('aria-expanded','false');
-      el.hidden = true;
-    } else {
-      btn.setAttribute('aria-expanded','true');
-      el.hidden = false;
-      el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  });
+document.querySelectorAll(".panelist-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+        const content = btn.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
 });
 </script>
 
