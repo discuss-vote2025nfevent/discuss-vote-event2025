@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回答一覧</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="section-title">登壇者 回答一覧</h2>
+
+    <!-- ▼▼ 以下、11名分をコピペで増やせます ▼▼ -->
+
+    <div class="accordion">【政治家Aさん】回答を見る</div>
+    <div class="accordion-content">
+        <p><strong>物価高対策 Q1：</strong> ここに回答</p>
+        <p><strong>物価高対策 Q2：</strong> ここに回答</p>
+        <p><strong>物価高対策 Q3：</strong> ここに回答</p>
+
+        <p><strong>SNS規制 Q1：</strong> ここに回答</p>
+        <p><strong>SNS規制 Q2：</strong> ここに回答</p>
+        <p><strong>SNS規制 Q3：</strong> ここに回答</p>
+
+        <p><strong>自由トピック：</strong> ここに回答</p>
+    </div>
+
+    <!-- ↑↑ このブロックを11名ぶん繰り返す ↑↑ -->
+
+</div>
+
+<div class="footer">© Discuss × Vote Event 2025</div>
+
+<script>
+document.querySelectorAll('.accordion').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('show');
+    });
+});
+</script>
+
+</body>
+</html>
