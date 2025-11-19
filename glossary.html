@@ -1,45 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用語解説</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>用語解説 - 議論×投票</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="container">
+    <header class="header">
+      <div class="title">用語解説</div>
+      <div class="subtitle">争点に関する用語をやさしく説明します</div>
+    </header>
 
-<div class="container">
+    <nav class="navbar" aria-label="ページメニュー">
+      <a href="index.html">トップ</a>
+      <a href="issues.html">争点解説</a>
+      <a href="answers.html">質問回答（パネリスト）</a>
+    </nav>
 
-    <h2 class="section-title">用語解説</h2>
+    <section class="card">
+      <div class="section-title">物価高対策の用語</div>
+      <div class="glossary-item"><strong>インフレ</strong><div>物価が継続的に上がること。</div></div>
+      <div class="glossary-item"><strong>緊急経済対策</strong><div>短期的に需要や供給に介入する政策。</div></div>
+    </section>
 
-    <div class="accordion">▼ 物価高対策の用語</div>
-    <div class="accordion-content">
-        <!-- ここに用語と説明を列挙 -->
-        <p><strong>例：インフレ</strong><br> 物価が継続的に上昇する状態。</p>
-    </div>
+    <section class="card">
+      <div class="section-title">SNS規制の用語</div>
+      <div class="glossary-item"><strong>表現の自由</strong><div>意見を自由に述べられる権利。</div></div>
+      <div class="glossary-item"><strong>デマ対策</strong><div>偽情報に対する取り組み。</div></div>
+    </section>
 
-    <div class="accordion">▼ SNS規制の用語</div>
-    <div class="accordion-content">
-        <!-- 用語 -->
-    </div>
+    <section class="card">
+      <div class="section-title">自由トピックの用語</div>
+      <div class="glossary-item"><strong>政策アジェンダ</strong><div>優先的に取り組む政策テーマ。</div></div>
+    </section>
 
-    <div class="accordion">▼ 自由トピックの用語</div>
-    <div class="accordion-content">
-        <!-- 用語 -->
-    </div>
-
-</div>
-
-<div class="footer">© Discuss × Vote Event 2025</div>
-
-<script>
-document.querySelectorAll('.accordion').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle('show');
-    });
-});
-</script>
-
+    <div class="footer">© Discuss × Vote Event 2025</div>
+  </main>
 </body>
 </html>
