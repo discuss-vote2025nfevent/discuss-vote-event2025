@@ -1,62 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論点解説</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>争点解説 - 議論×投票</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="container">
+    <header class="header">
+      <div class="title">争点解説</div>
+      <div class="subtitle">物価高対策 / SNS規制</div>
+    </header>
 
-<div class="container">
+    <nav class="navbar" aria-label="ページメニュー">
+      <a href="index.html">トップ</a>
+      <a href="answers.html">質問回答（パネリスト）</a>
+      <a href="glossary.html">用語解説</a>
+    </nav>
 
-    <h2 class="section-title">物価高対策</h2>
+    <section class="card">
+      <h3 class="h3">物価高対策</h3>
+      <!-- ここに物価高対策の説明テキストを入れてください -->
+      <p class="muted">（例）物価上昇の背景、政策の方向性、想定される効果など。ここに解説を入れてください。</p>
+    </section>
 
-    <div class="accordion">Q1：キャッチコピー</div>
-    <div class="accordion-content">
-        <!-- ここに説明文を入れてください -->
-    </div>
+    <section class="card">
+      <h3 class="h3">SNS規制</h3>
+      <!-- ここにSNS規制の説明テキストを入れてください -->
+      <p class="muted">（例）表現の自由と安全性のバランス、規制案の要点、議論の論点など。ここに解説を入れてください。</p>
+    </section>
 
-    <div class="accordion">Q2：政策の狙い / 利点</div>
-    <div class="accordion-content">
-        <!-- ここに説明文を入れてください -->
-    </div>
-
-    <div class="accordion">Q3：政策の課題</div>
-    <div class="accordion-content">
-        <!-- ここに説明文を入れてください -->
-    </div>
-
-
-    <h2 class="section-title">SNS規制</h2>
-
-    <div class="accordion">Q1：キャッチコピー</div>
-    <div class="accordion-content">
-        <!-- 説明文 -->
-    </div>
-
-    <div class="accordion">Q2：背景・狙い / 利点</div>
-    <div class="accordion-content">
-        <!-- 説明文 -->
-    </div>
-
-    <div class="accordion">Q3：政策の課題</div>
-    <div class="accordion-content">
-        <!-- 説明文 -->
-    </div>
-
-</div>
-
-<div class="footer">© Discuss × Vote Event 2025</div>
-
-<script>
-document.querySelectorAll('.accordion').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle('show');
-    });
-});
-</script>
-
+    <div class="footer">© Discuss × Vote Event 2025</div>
+  </main>
 </body>
 </html>
