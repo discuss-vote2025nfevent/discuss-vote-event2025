@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用語解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="section-title">用語解説</h2>
+
+    <div class="accordion">▼ 物価高対策の用語</div>
+    <div class="accordion-content">
+        <!-- ここに用語と説明を列挙 -->
+        <p><strong>例：インフレ</strong><br> 物価が継続的に上昇する状態。</p>
+    </div>
+
+    <div class="accordion">▼ SNS規制の用語</div>
+    <div class="accordion-content">
+        <!-- 用語 -->
+    </div>
+
+    <div class="accordion">▼ 自由トピックの用語</div>
+    <div class="accordion-content">
+        <!-- 用語 -->
+    </div>
+
+</div>
+
+<div class="footer">© Discuss × Vote Event 2025</div>
+
+<script>
+document.querySelectorAll('.accordion').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('show');
+    });
+});
+</script>
+
+</body>
+</html>
