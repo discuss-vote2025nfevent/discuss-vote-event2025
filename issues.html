@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論点解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="section-title">物価高対策</h2>
+
+    <div class="accordion">Q1：キャッチコピー</div>
+    <div class="accordion-content">
+        <!-- ここに説明文を入れてください -->
+    </div>
+
+    <div class="accordion">Q2：政策の狙い / 利点</div>
+    <div class="accordion-content">
+        <!-- ここに説明文を入れてください -->
+    </div>
+
+    <div class="accordion">Q3：政策の課題</div>
+    <div class="accordion-content">
+        <!-- ここに説明文を入れてください -->
+    </div>
+
+
+    <h2 class="section-title">SNS規制</h2>
+
+    <div class="accordion">Q1：キャッチコピー</div>
+    <div class="accordion-content">
+        <!-- 説明文 -->
+    </div>
+
+    <div class="accordion">Q2：背景・狙い / 利点</div>
+    <div class="accordion-content">
+        <!-- 説明文 -->
+    </div>
+
+    <div class="accordion">Q3：政策の課題</div>
+    <div class="accordion-content">
+        <!-- 説明文 -->
+    </div>
+
+</div>
+
+<div class="footer">© Discuss × Vote Event 2025</div>
+
+<script>
+document.querySelectorAll('.accordion').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('show');
+    });
+});
+</script>
+
+</body>
+</html>
