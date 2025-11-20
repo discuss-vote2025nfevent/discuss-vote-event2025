@@ -37,4 +37,58 @@
       <div class="section-title">質問文（Q1 - Q7）</div>
 
       <div class="questions-box">
-        <!-- ③ 番号の重複を解
+        <!-- ③ 番号の重複を解消し、Q1〜Q7 へ統一 -->
+        <ul>
+          <li><strong>Q1：</strong>物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+          <li><strong>Q2：</strong>物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
+          <li><strong>Q3：</strong>物価高対策について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+          <li><strong>Q4：</strong>SNS規制について、SNSはフェイクニュース・誹謗中傷等の問題があることからSNS規制を進めるべきだという声がある一方、表現の自由の保障に関する懸念の声もあります。これを踏まえ、SNS規制の是非を含めてどのような政策を取られますか。ご登壇者様ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+          <li><strong>Q5：</strong>SNS規制について、ご登壇者ご自身の政策の背景と狙い又は利点をお書きください。</li>
+          <li><strong>Q6：</strong>SNS規制について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+          <li><strong>Q7：</strong>ご登壇者様ご自身の最も伝えたい政策についてお書きください（自由トピック）。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">パネリスト 一覧（タップして回答を表示）</div>
+
+      <!-- ====== パネリストテンプレート ====== -->
+      <button class="panelist-list name-btn" data-target="p-1" aria-expanded="false">パネリスト1</button>
+      <div id="p-1" class="answer-box" hidden>
+        <strong>Q1：</strong><div>（ここに回答を入れてください）</div>
+        <strong>Q2：</strong><div>（ここに回答）</div>
+        <strong>Q3：</strong><div>（ここに回答）</div>
+        <strong>Q4：</strong><div>（ここに回答）</div>
+        <strong>Q5：</strong><div>（ここに回答）</div>
+        <strong>Q6：</strong><div>（ここに回答）</div>
+        <strong>Q7：</strong><div>（ここに回答）</div>
+      </div>
+
+      <!-- 同じ形式で p-2〜p-11 を作成 -->
+    </section>
+
+    <div class="footer">© Discuss × Vote Event 2025</div>
+  </main>
+
+<script>
+/* name button -> toggle answer box */
+document.querySelectorAll('.name-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const target = btn.dataset.target;
+    const el = document.getElementById(target);
+    if(!el) return;
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    el.hidden = expanded;
+
+    if (!expanded) {
+      el.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
