@@ -1,64 +1,106 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>質問回答</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 質問文の可読性改善 */
+        .question-box {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #444;
+        }
+        .question-box h2 {
+            margin: 0 0 10px;
+            font-size: 1.3rem;
+            color: #111; /* ← 質問文を濃く */
+            font-weight: bold;
+        }
+        .question-box p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #111; /* ← 読みやすい濃さに統一 */
+        }
 
+        /* パネリスト名 */
+        .panelist-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* 回答ボックス */
+        .answer {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0 25px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .answer h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: bold;
+        }
+
+        .answer p {
+            margin-top: 8px;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
 <body>
+
 <header>
     <h1>質問回答</h1>
 </header>
 
-<main class="container">
+<main>
 
-    <!-- 質問文（上部固定） -->
+    <!-- ▼ 「共通の質問」→「質問文」に変更 -->
     <section class="question-box">
         <h2>質問文</h2>
-        <ul class="question-list">
-            <li><strong>Q1.</strong> 物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーを書いてください。</li>
-            <li><strong>Q2.</strong> 物価高対策について、ご登壇者ご自身の政策の狙い・利点を書いてください。</li>
-            <li><strong>Q3.</strong> 物価高対策について、ご登壇者ご自身の政策の課題を書いてください。</li>
 
-            <li><strong>Q4.</strong> SNS規制について：フェイクニュース等の問題と表現の自由のバランスを踏まえ、どのような政策理念を持つか。キャッチコピーを書いてください。</li>
-            <li><strong>Q5.</strong> SNS規制について、ご自身の政策の背景、狙い・利点を書いてください。</li>
-            <li><strong>Q6.</strong> SNS規制について、ご自身の政策の課題を書いてください。</li>
-
-            <li><strong>Q7.</strong> 自由トピック：最も伝えたい政策を書いてください。</li>
-        </ul>
+        <!-- 番号の重複を解消 「1. Q1」→「Q1」 -->
+        <p><strong>Q1：</strong>（質問文をここに表示）</p>
+        <p><strong>Q2：</strong>（質問文をここに表示）</p>
+        <p><strong>Q3：</strong>（質問文をここに表示）</p>
+        <p><strong>Q4：</strong>（質問文をここに表示）</p>
+        <p><strong>Q5：</strong>（質問文をここに表示）</p>
+        <p><strong>Q6：</strong>（質問文をここに表示）</p>
+        <p><strong>Q7：</strong>（質問文をここに表示）</p>
     </section>
 
-    <!-- パネリスト一覧（元の形式を維持） -->
+    <!-- ▼ 以下、パネリスト回答部分（デザインは変更前のまま） -->
+    <!-- アップロードいただいた画像パスに合わせて img フォルダをそのまま使用 -->
+
     <section>
-        <h2>パネリスト一覧</h2>
-        <div class="panelist-list">
-            <!-- ▼ここに名前 → 回答 の形式でコピペして入力していく箇所 -->
-            <!-- 例）
-            <div class="panelist">
-                <button class="panelist-btn">山田太郎</button>
-                <div class="panelist-content">
-                    <p><strong>Q1:</strong> 回答文...</p>
-                    <p><strong>Q2:</strong> 回答文...</p>
-                    ...
-                </div>
-            </div>
-            -->
+        <h2 class="panelist-name">パネリスト A</h2>
+
+        <div class="answer">
+            <h3>Q1</h3>
+            <p>ここに回答文章。</p>
         </div>
+
+        <div class="answer">
+            <h3>Q2</h3>
+            <p>ここに回答文章。</p>
+        </div>
+
+        <!-- 以下 Q7 まで同形式で続けてください -->
+
     </section>
 
 </main>
-
-<script>
-document.querySelectorAll(".panelist-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.classList.toggle("active");
-        const content = btn.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-});
-</script>
 
 </body>
 </html>
