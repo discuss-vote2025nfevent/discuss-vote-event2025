@@ -1,5 +1,6 @@
-/* style.css - unified header + accordion + quiz styles (monochrome, mobile-first) */
-
+/* =========================================
+   Global Variables
+========================================= */
 :root{
   --bg:#ffffff;
   --panel:#fafafa;
@@ -12,7 +13,9 @@
   --gap:18px;
 }
 
-/* reset */
+/* =========================================
+   Reset
+========================================= */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -24,28 +27,66 @@ body{
   line-height:1.6;
 }
 
-/* container */
+/* =========================================
+   Layout Container
+========================================= */
 .container{
   width:94%;
   max-width:var(--maxw);
-  margin:20px auto;
-  padding:0 10px;
+  margin:28px auto;
+  padding:0 8px;
 }
 
-/* global header */
-.global-header{ text-align:center; margin-bottom:8px; }
-.gh-logo-wrap{ display:flex; justify-content:center; margin:8px 0 12px; }
-.gh-logo{ width:260px; max-width:78%; height:auto; border-radius:10px; box-shadow:0 12px 30px var(--shadow); }
+/* =========================================
+   Header & Logo
+========================================= */
+.header{ text-align:center; margin-bottom:10px; }
+.logo-wrap{ display:flex; justify-content:center; margin:22px 0; }
+.header-logo{
+  width:260px; max-width:78%;
+  height:auto;
+  border-radius:8px;
+  box-shadow: 0 12px 30px var(--shadow);
+  background:linear-gradient(180deg,#fff,#f7f7f7);
+}
 
-.gh-nav{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+/* =========================================
+   Navigation Bar
+========================================= */
+.gh-nav{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0 24px;
+  flex-wrap:wrap;
+}
 .gh-nav a{
-  text-decoration:none; padding:10px 14px; border-radius:999px; background:#fff;
-  border:1px solid rgba(0,0,0,0.06); color:var(--text); font-weight:700; font-size:0.94rem;
-  transition:all .15s ease;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--text);
+  border:1px solid rgba(0,0,0,0.05);
+  font-weight:700;
+  font-size:0.95rem;
+  transition:all .16s ease;
 }
-.gh-nav a:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,0.05); }
 
-/* card */
+/* 🔥 現在開いているページを視覚的に強調 */
+.gh-nav a.active{
+  background:#e0e0e0;
+  color:#000;
+  font-weight:900;
+}
+
+.gh-nav a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   Card (White Box)
+========================================= */
 .card{
   background:var(--panel);
   border-radius:var(--radius);
@@ -54,64 +95,164 @@ body{
   margin-bottom:20px;
   border:1px solid rgba(0,0,0,0.03);
 }
-.section-title{ font-size:1.06rem; color:var(--accent); font-weight:800; margin-bottom:12px; }
 
-/* unified accordion (questions & glossary) */
-.accordion {
-  border-radius:10px; overflow:hidden; border:1px solid rgba(0,0,0,0.08); background:#fff; margin-bottom:12px;
+/* Titles */
+.section-title{
+  font-size:1.1rem;
+  font-weight:800;
+  color:#000;
+  margin-bottom:12px;
 }
+
+/* =========================================
+   Accordion (質問文 / 用語解説 共通)
+========================================= */
+.acc-wrap{
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.07);
+  overflow:hidden;
+  margin-bottom:12px;
+  background:#fff;
+}
+
 .acc-btn{
-  width:100%; padding:14px 16px; text-align:left; background:transparent; border:none; cursor:pointer;
-  font-weight:800; font-size:1rem; display:flex; justify-content:space-between; align-items:center;
+  width:100%;
+  background:#fff;
+  border:none;
+  text-align:left;
+  padding:16px;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-.acc-btn:focus{ outline:3px solid rgba(0,0,0,0.06); }
-.acc-icon{ transition: transform .18s ease; transform:rotate(0deg); opacity:.9; }
-.acc-btn[aria-expanded="true"] .acc-icon{ transform:rotate(90deg); }
 
-.acc-panel{ display:none; padding:14px 16px; border-top:1px solid rgba(0,0,0,0.06); color:var(--text); background:#fff; }
-.acc-panel.show{ display:block; }
-
-/* question list */
-.q-list li{ margin-bottom:10px; color:#111; line-height:1.6; }
-
-/* panelist button */
-.name-btn{
-  display:block; width:100%; text-align:left; padding:16px 16px; border-radius:12px; border:1px solid rgba(0,0,0,0.06);
-  background:#fff; margin:12px 0; font-weight:900; font-size:1.05rem; cursor:pointer;
-  transition: background .12s ease, transform .12s ease;
+.acc-btn:hover{
+  background:#f5f5f5;
 }
-.name-btn:hover{ background:rgba(0,0,0,0.03); transform:translateY(-2px); }
 
-/* answer box (keeps space when hidden) */
+.acc-icon{
+  transition:.2s;
+}
+
+.acc-btn[aria-expanded="true"] .acc-icon{
+  transform:rotate(90deg);
+}
+
+.acc-panel{
+  display:none;
+  padding:16px;
+  border-top:1px solid rgba(0,0,0,0.06);
+  line-height:1.65;
+  background:#fff;
+}
+
+.acc-panel.show{
+  display:block;
+}
+
+/* =========================================
+   Panelist List
+========================================= */
+.panelist-list .name-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:12px 0;
+  font-size:1.05rem;
+  font-weight:900;
+  text-align:left;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.1);
+  background:#fff;
+  cursor:pointer;
+  transition:.15s ease;
+}
+
+.panelist-list .name-btn:hover{
+  background:#f2f2f2;
+  transform:translateY(-2px);
+}
+
 .answer-box{
-  padding:14px; margin-top:8px; border-radius:10px; background:#fff; border:1px solid rgba(0,0,0,0.03);
-  box-shadow:0 8px 20px rgba(0,0,0,0.03); color:var(--text);
+  padding:16px;
+  margin:10px 0 20px;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 8px 18px rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.06);
+  line-height:1.7;
 }
 
-/* To prevent collapsing layout when hidden, use visibility + height animations via JS.
-   .collapsed will be applied to hide visually but preserve flow if needed. */
+/* =========================================
+   Quiz Page
+========================================= */
+.quiz-card{
+  padding:16px;
+  margin-bottom:22px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:10px;
+}
 
-/* quiz */
-.quiz-card{ padding:16px; border-radius:10px; margin-bottom:18px; background:#fff; border:1px solid rgba(0,0,0,0.04); }
-.q-title{ font-weight:800; margin-bottom:8px; color:#111; }
-.q-row{ margin-bottom:14px; }
-.q-input{ width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-size:1rem; }
-.btn-inline{ display:inline-block; padding:10px 14px; border-radius:10px; background:#000; color:#fff; border:none; cursor:pointer; margin-left:8px; font-weight:700; }
-.result{ display:inline-block; margin-left:10px; font-weight:700; padding:6px 10px; border-radius:8px; }
+.q-title{
+  font-weight:800;
+  margin-bottom:10px;
+  font-size:1.05rem;
+  line-height:1.4;
+}
 
-/* result styles */
-.result.ok{ background:#e8ffe8; border:1px solid #8cd48c; color:#117a11; }
-.result.ng{ background:#ffecec; border:1px solid #e38a8a; color:#b30000; }
+.q-input{
+  width:100%;
+  padding:12px;
+  font-size:1rem;
+  border-radius:8px;
+  border:1px solid #ddd;
+  margin-top:6px;
+}
 
-/* score box */
-.score-box{ text-align:center; padding:12px; border-radius:8px; margin-top:12px; background:#fafafa; border:1px solid rgba(0,0,0,0.03); }
+.btn-inline{
+  padding:10px 14px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  margin-left:8px;
+  font-weight:700;
+}
 
-/* footer */
-.footer{ text-align:center; color:var(--muted); margin:28px 0 60px; font-size:0.88rem; }
+.result{
+  margin-left:12px;
+  font-weight:700;
+  font-size:1rem;
+}
 
-/* responsive */
+/* 🔥 クイズの丸記号（○）のサイズを完全統一 */
+.quiz-card li{
+  list-style:none;
+}
+.quiz-card li::before{
+  content:"○ ";
+  font-size:1.15em;
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin:28px 0 60px;
+  font-size:0.88rem;
+}
+
+/* =========================================
+   Responsive
+========================================= */
 @media (max-width:640px){
-  .gh-logo{ width:200px; }
-  .name-btn{ font-size:1rem; padding:14px; }
-  .acc-btn{ padding:12px; font-size:0.98rem; }
+  .header-logo{ width:200px; }
+  .panelist-list .name-btn{ padding:14px; font-size:1rem; }
 }
