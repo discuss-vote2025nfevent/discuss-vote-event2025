@@ -3,90 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>争点解説 - 議論×投票</title>
+  <title>議論×投票</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
+
+    <!-- 大きめロゴ（タイトル／サブタイトルは削除） -->
     <header class="header">
-      <div class="title">争点解説</div>
-      <div class="subtitle">物価高対策 / SNS規制</div>
+      <div class="logo-wrap">
+        <img src="img/logo.png" class="header-logo" alt="イベントロゴ">
+      </div>
     </header>
 
-    <nav class="navbar" aria-label="ページメニュー">
+    <nav class="navbar" aria-label="主要メニュー">
       <a href="index.html">トップ</a>
+      <a href="issues.html">争点解説</a>
       <a href="answers.html">質問回答</a>
       <a href="glossary.html">用語解説</a>
+      <a href="quiz.html">クイズ</a>
     </nav>
 
-    <div class="card">
-      <div class="tabs" role="tablist" aria-label="争点タブ">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-price">物価高対策</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-sns">SNS規制</button>
-      </div>
+    <section class="card">
+      <div class="section-title">このWEBサイトの目的</div>
+      <p>このWEBサイトは参加者の皆さまにより企画を楽しんでいただくために、情報をまとめたものです。企画中、パネリストと対話する前後の待ち時間にぜひご覧ください。</p>
+    </section>
 
-      <!-- TAB: 物価高対策 -->
-      <div id="tab-price" class="tab-panel active" role="tabpanel">
-        <div class="section-title">物価高対策 - 解説</div>
-        <p class="muted">ここに物価高対策の解説テキストを入れてください。政策背景、期待される効果、論点などを整理して記載します。</p>
-
-        <div class="section-title" style="margin-top:14px">関連図・説明</div>
-        <div class="img-set">
-          <div class="img-card">
-            <img src="img/highprice-1.png" alt="物価高対策イメージ1">
-            <div class="img-caption">（図1）ここに画像1の説明文を入れてください。</div>
-          </div>
-          <div class="img-card">
-            <img src="img/highprice-2.png" alt="物価高対策イメージ2">
-            <div class="img-caption">（図2）ここに画像2の説明文を入れてください。</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB: SNS規制 -->
-      <div id="tab-sns" class="tab-panel" role="tabpanel">
-        <div class="section-title">SNS規制 - 解説</div>
-        <p class="muted">ここにSNS規制の解説テキストを入れてください。表現の自由とのバランス、既存の規制案、懸念点などを整理して記載します。</p>
-
-        <div class="section-title" style="margin-top:14px">関連図・説明</div>
-        <div class="img-set">
-          <div class="img-card">
-            <img src="img/sns-1.png" alt="SNS規制イメージ1">
-            <div class="img-caption">（図1）ここに画像1の説明文を入れてください。</div>
-          </div>
-          <div class="img-card">
-            <img src="img/sns-2.png" alt="SNS規制イメージ2">
-            <div class="img-caption">（図2）ここに画像2の説明文を入れてください。</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <section class="card">
+      <div class="section-title">当日の流れ</div>
+      <ol>
+        <li>オープニング</li>
+        <li>パネリスト同士のトークセッション</li>
+        <li>参加者とパネリストによる対話パート</li>
+        <li>京セラ提供「デジ選」を導入した模擬投票</li>
+      </ol>
+    </section>
 
     <div class="footer">© Discuss × Vote Event 2025</div>
   </main>
-
-<script>
-/* simple tab behavior */
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=> {
-    const target = btn.dataset.target;
-    // toggle buttons
-    document.querySelectorAll('.tab-btn').forEach(b=>{
-      b.classList.remove('active');
-      b.setAttribute('aria-selected','false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected','true');
-    // panels
-    document.querySelectorAll('.tab-panel').forEach(p=>{
-      p.classList.remove('active');
-    });
-    const panel = document.getElementById(target);
-    if(panel) panel.classList.add('active');
-  });
-});
-</script>
-
 </body>
 </html>
