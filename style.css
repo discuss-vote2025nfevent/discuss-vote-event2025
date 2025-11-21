@@ -115,3 +115,10 @@ body{
   .name-btn{ font-size:1rem; padding:14px; }
   .acc-btn{ padding:12px; font-size:0.98rem; }
 }
+
+/* ナビのアクティブページ（開いているページ）を強調表示 */
+.gh-nav a.active {
+  background: #e0e0e0;   /* 薄いグレー背景 */
+  color: #000;           /* 文字色は黒 */
+  font-weight: bold;
+}
