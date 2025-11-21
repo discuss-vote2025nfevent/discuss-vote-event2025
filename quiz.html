@@ -91,9 +91,22 @@
   function checkOne(n){
     const v = (document.getElementById('a'+n).value || "").trim();
     const r = document.getElementById('r'+n);
-    if(!v){ r.textContent="回答を入力してください"; r.className="result"; r.style.color="#666"; return; }
-    if(v === answers[n-1]){ r.textContent="正解"; r.className="result ok"; }
-    else{ r.textContent="不正解"; r.className="result ng"; }
+    const ans = answers[n-1];
+
+    if(!v){
+      r.textContent = "回答を入力してください　（答え：" + ans + "）";
+      r.className = "result";
+      r.style.color="#666";
+      return;
+    }
+
+    if(v === ans){
+      r.textContent = "正解！　（答え：" + ans + "）";
+      r.className = "result ok";
+    } else {
+      r.textContent = "不正解　（答え：" + ans + "）";
+      r.className = "result ng";
+    }
   }
 
   function scoreAll(){
@@ -101,10 +114,22 @@
     for(let i=1;i<=13;i++){
       const v = (document.getElementById('a'+i).value || "").trim();
       const r = document.getElementById('r'+i);
-      if(v === answers[i-1]){ correct++; r.textContent="正解"; r.className="result ok"; }
-      else if(v === ""){ r.textContent="（未入力）"; r.className="result"; r.style.color="#666"; }
-      else{ r.textContent="不正解"; r.className="result ng"; }
+      const ans = answers[i-1];
+
+      if(v === ans){
+        correct++;
+        r.textContent = "正解！　（答え：" + ans + "）";
+        r.className = "result ok";
+      } else if(v === ""){
+        r.textContent = "（未入力）　（答え：" + ans + "）";
+        r.className = "result";
+        r.style.color="#666";
+      } else {
+        r.textContent = "不正解　（答え：" + ans + "）";
+        r.className = "result ng";
+      }
     }
+
     const box = document.getElementById('scoreBox');
     box.style.display='block';
     box.textContent = `全13問中 ${correct}問正解でした。`;
