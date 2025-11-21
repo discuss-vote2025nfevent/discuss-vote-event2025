@@ -1,92 +1,212 @@
-/* ベースデザイン（モノクロ・スタイリッシュ） */
-body {
-    font-family: "Noto Sans JP", sans-serif;
-    margin: 0;
-    background: #f7f7f7;
-    color: #222;
+/* style.css
+   Monochrome / Stylish theme
+   Responsive, accessible accordion
+*/
+
+:root{
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #222222; /* subtle darker accent */
+  --card-shadow: rgba(0,0,0,0.06);
+  --radius: 12px;
+  --max-width: 920px;
 }
 
-header {
-    background: #000;
-    color: white;
-    padding: 18px;
-    text-align: center;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
 }
 
-.container {
-    width: 92%;
-    max-width: 900px;
-    margin: auto;
-    padding: 25px 10px;
+/* page container */
+.container{
+  width:94%;
+  max-width:var(--max-width);
+  margin:28px auto;
+  padding:0 8px;
 }
 
-/* 見出し */
-h1, h2 {
-    color: #111;
-    font-weight: 600;
+/* header / title */
+.header {
+  text-align:center;
+  margin-bottom:18px;
+}
+.title {
+  font-weight:700;
+  font-size:1.55rem;
+  letter-spacing:0.01em;
+  color:var(--accent);
+  margin:4px 0;
+}
+.subtitle {
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-top:6px;
 }
 
-/* --- 質問文エリア（改善済）--- */
-.question-box {
-    background: white;
-    padding: 18px;
-    margin-bottom: 28px;
-    border-radius: 8px;
-    border-left: 4px solid #000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* logo */
+.logo-wrap{
+  display:flex;
+  justify-content:center;
+  margin:18px 0;
+}
+.header-logo{
+  width:220px;
+  max-width:60%;
+  height:auto;
+  border-radius:10px;
+  box-shadow: 0 6px 18px var(--card-shadow);
+  background:linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
 }
 
-.question-list {
-    padding-left: 18px;
+/* navbar (simple, compact) */
+.navbar{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin:18px 0 28px;
+  flex-wrap:wrap;
+}
+.navbar a{
+  text-decoration:none;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:999px;
+  background:transparent;
+  color:var(--text);
+  border:1px solid rgba(17,17,17,0.06);
+  font-weight:600;
+  font-size:0.95rem;
+  transition: all .18s ease;
+}
+.navbar a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
 }
 
-.question-list li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    font-size: 1rem;
-    color: #222;
+/* card */
+.card{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  margin-bottom:20px;
+  border: 1px solid rgba(17,17,17,0.03);
 }
 
-/* パネリスト一覧（元の形式） */
-.panelist {
-    margin-bottom: 16px;
+/* section title */
+.section-title{
+  font-size:1.15rem;
+  color:var(--accent);
+  margin-bottom:12px;
+  font-weight:700;
 }
 
-.panelist-btn {
-    width: 100%;
-    background: #fff;
-    border: 1px solid #444;
-    padding: 13px;
-    text-align: left;
-    font-size: 1.05rem;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s;
+/* mini headings in card */
+.h3{
+  font-weight:700;
+  margin:12px 0 8px;
+  color:var(--text);
+  font-size:0.98rem;
 }
 
-.panelist-btn:hover {
-    background: #eee;
+/* accordion (accessible) */
+.accordion {
+  width:100%;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.06);
+  display:block;
+  padding:12px 14px;
+  text-align:left;
+  cursor:pointer;
+  font-size:0.98rem;
+  font-weight:700;
+  color:var(--text);
+  margin:8px 0;
+}
+.accordion:focus{outline: 3px solid rgba(0,0,0,0.06)}
+.accordion-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.accordion .chev{
+  width:18px; height:18px;
+  display:inline-block;
+  transform:rotate(0deg);
+  transition: transform .18s ease;
+  opacity:.8;
 }
 
-.panelist-content {
-    display: none;
-    background: #fff;
-    margin-top: 6px;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+/* content area (hidden by default) */
+.accordion-content{
+  display:none;
+  padding:14px;
+  background:linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  border-left:3px solid rgba(0,0,0,0.04);
+  margin-bottom:12px;
+  border-radius:0 0 10px 10px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+.accordion[aria-expanded="true"] + .accordion-content{ display:block; }
+.accordion[aria-expanded="true"] .chev{ transform:rotate(90deg); }
+
+/* button-like list for panelists (names) */
+.panelist-list .name-btn{
+  width:100%;
+  text-align:left;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.05);
+  background:transparent;
+  margin:8px 0;
+  font-weight:700;
+  cursor:pointer;
 }
 
-.panelist-content p {
-    margin-bottom: 8px;
+/* answer box style */
+.answer-box{
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.03);
+  color:var(--text);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+  font-size:0.95rem;
 }
 
-/* スマホ最適化 */
-@media (max-width: 600px) {
-    .question-list li {
-        font-size: 0.95rem;
-    }
-    .panelist-btn {
-        font-size: 1rem;
-    }
+/* glossary list */
+.glossary-item{
+  margin:10px 0;
+  padding:10px;
+  border-left:3px solid rgba(0,0,0,0.04);
+}
+
+/* footer */
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin:28px 0 60px;
+  font-size:0.88rem;
+}
+
+/* small screens */
+@media (max-width:560px){
+  .header-logo{ width:180px; }
+  .title{ font-size:1.25rem; }
+  .container{ width:96%; padding:0 8px; }
+  .navbar a{ padding:9px 12px; font-size:0.9rem; }
 }
