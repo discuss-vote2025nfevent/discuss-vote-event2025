@@ -7,24 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
 
-    <!-- 大きめロゴ（タイトル／サブタイトルは削除） -->
-    <header class="header">
-      <div class="logo-wrap">
-        <img src="img/logo.png" class="header-logo" alt="イベントロゴ">
-      </div>
-    </header>
-
-    <nav class="navbar" aria-label="主要メニュー">
+  <!-- global header (logo + nav) -->
+  <header class="global-header">
+    <div class="gh-logo-wrap">
+      <!-- using your uploaded file path as requested -->
+      <img src="/mnt/data/gr_ロゴ.png" class="gh-logo" alt="イベントロゴ">
+    </div>
+    <nav class="gh-nav" aria-label="サイトメニュー">
       <a href="index.html">トップ</a>
       <a href="issues.html">争点解説</a>
       <a href="answers.html">質問回答</a>
       <a href="glossary.html">用語解説</a>
       <a href="quiz.html">クイズ</a>
     </nav>
+  </header>
 
+  <main class="container">
     <section class="card">
+      <!-- title removed per request -->
       <div class="section-title">このWEBサイトの目的</div>
       <p>このWEBサイトは参加者の皆さまにより企画を楽しんでいただくために、情報をまとめたものです。企画中、パネリストと対話する前後の待ち時間にぜひご覧ください。</p>
     </section>
