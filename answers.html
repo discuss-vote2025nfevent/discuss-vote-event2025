@@ -5,18 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>質問回答 - 議論×投票</title>
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* 質問文の可読性改善（色を濃く） */
-    .questions-box li {
-      color: #111;
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    .section-title {
-      color: #000;
-    }
-  </style>
 </head>
 <body>
   <main class="container">
@@ -25,67 +13,87 @@
       <div class="subtitle">以下の質問に関して、各パネリストの回答を掲載しています。名前をタップして回答を表示してください。</div>
     </header>
 
-    <!-- ▼ このナビゲーションは元コードのまま維持（消えません） -->
     <nav class="navbar" aria-label="ページメニュー">
       <a href="index.html">トップ</a>
       <a href="issues.html">争点解説</a>
       <a href="glossary.html">用語解説</a>
+      <a href="quiz.html">クイズ</a>
     </nav>
 
+    <!-- 質問文を一つにまとめたアコーディオン -->
     <section class="card">
-      <!-- ① タイトルを変更 -->
-      <div class="section-title">質問文（Q1 - Q7）</div>
-
-      <div class="questions-box">
-        <!-- ③ 番号の重複を解消し、Q1〜Q7 へ統一 -->
-        <ul>
-          <li><strong>Q1：</strong>物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
-          <li><strong>Q2：</strong>物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
-          <li><strong>Q3：</strong>物価高対策について、ご登壇者ご自身の政策の課題についてお書きください。</li>
-          <li><strong>Q4：</strong>SNS規制について、SNSはフェイクニュース・誹謗中傷等の問題があることからSNS規制を進めるべきだという声がある一方、表現の自由の保障に関する懸念の声もあります。これを踏まえ、SNS規制の是非を含めてどのような政策を取られますか。ご登壇者様ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
-          <li><strong>Q5：</strong>SNS規制について、ご登壇者ご自身の政策の背景と狙い又は利点をお書きください。</li>
-          <li><strong>Q6：</strong>SNS規制について、ご登壇者ご自身の政策の課題についてお書きください。</li>
-          <li><strong>Q7：</strong>ご登壇者様ご自身の最も伝えたい政策についてお書きください（自由トピック）。</li>
-        </ul>
+      <div class="section-title">質問文</div>
+      <div class="q-accordion" id="qAccordion">
+        <button class="q-acc-btn" aria-expanded="false" data-target="qPanel">
+          <span>▼ 質問（タップで開閉）</span>
+          <span class="q-acc-icon">▶</span>
+        </button>
+        <div id="qPanel" class="q-acc-panel">
+          <ul class="q-list">
+            <li><strong>Q1：</strong>物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+            <li><strong>Q2：</strong>物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
+            <li><strong>Q3：</strong>物価高対策について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+            <li><strong>Q4：</strong>SNS規制について、SNSはフェイクニュース・誹謗中傷等の問題があることからSNS規制を進めるべきだという声がある一方、表現の自由の保障に関する懸念の声もあります。これを踏まえ、SNS規制の是非を含めてどのような政策を取られますか。ご登壇者様ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
+            <li><strong>Q5：</strong>SNS規制について、ご登壇者ご自身の政策の背景と狙い又は利点をお書きください。</li>
+            <li><strong>Q6：</strong>SNS規制について、ご登壇者ご自身の政策の課題についてお書きください。</li>
+            <li><strong>Q7：</strong>ご登壇者様ご自身の最も伝えたい政策についてお書きください（自由トピック）。</li>
+          </ul>
+        </div>
       </div>
     </section>
 
+    <!-- パネリスト一覧（ボタン大きめ） -->
     <section class="card">
-      <div class="section-title">パネリスト 一覧（タップして回答を表示）</div>
+      <div class="section-title">パネリスト一覧（タップして回答を表示）</div>
 
-      <!-- ====== パネリストテンプレート ====== -->
-      <button class="panelist-list name-btn" data-target="p-1" aria-expanded="false">パネリスト1</button>
-      <div id="p-1" class="answer-box" hidden>
-        <strong>Q1：</strong><div>（ここに回答を入れてください）</div>
-        <strong>Q2：</strong><div>（ここに回答）</div>
-        <strong>Q3：</strong><div>（ここに回答）</div>
-        <strong>Q4：</strong><div>（ここに回答）</div>
-        <strong>Q5：</strong><div>（ここに回答）</div>
-        <strong>Q6：</strong><div>（ここに回答）</div>
-        <strong>Q7：</strong><div>（ここに回答）</div>
+      <div class="panelist-list">
+        <!-- 繰り返しブロック（複製してp-2..p-11を作成） -->
+        <button class="name-btn panelist" data-target="p-1" aria-expanded="false">パネリスト1</button>
+        <div id="p-1" class="answer-box" hidden>
+          <p><strong>Q1：</strong>（ここに回答）</p>
+          <p><strong>Q2：</strong>（ここに回答）</p>
+          <p><strong>Q3：</strong>（ここに回答）</p>
+          <p><strong>Q4：</strong>（ここに回答）</p>
+          <p><strong>Q5：</strong>（ここに回答）</p>
+          <p><strong>Q6：</strong>（ここに回答）</p>
+          <p><strong>Q7：</strong>（ここに回答）</p>
+        </div>
+
+        <!-- 複製してパネリスト2..11 -->
       </div>
-
-      <!-- 同じ形式で p-2〜p-11 を作成 -->
     </section>
 
     <div class="footer">© Discuss × Vote Event 2025</div>
   </main>
 
 <script>
-/* name button -> toggle answer box */
-document.querySelectorAll('.name-btn').forEach(btn=>{
+/* 質問アコーディオン */
+document.querySelectorAll('.q-acc-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const targetId = btn.dataset.target;
+    const panel = document.getElementById(targetId);
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    if(panel){
+      panel.classList.toggle('show');
+      // rotate icon
+      const icon = btn.querySelector('.q-acc-icon');
+      if(icon) icon.style.transform = panel.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
+    }
+  });
+});
+
+/* パネリストの回答トグル（名前ボタン） */
+document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const target = btn.dataset.target;
+    if(!target) return;
     const el = document.getElementById(target);
     if(!el) return;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
-
     btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     el.hidden = expanded;
-
-    if (!expanded) {
-      el.scrollIntoView({ behavior:'smooth', block:'start' });
-    }
+    if(!expanded) el.scrollIntoView({behavior:'smooth', block:'start'});
   });
 });
 </script>
