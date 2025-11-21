@@ -1,124 +1,92 @@
-/* style.css - Monochrome stylish theme, mobile-first, enhanced tap targets */
-
-:root{
-  --bg:#ffffff;
-  --panel:#fafafa;
-  --text:#111;
-  --muted:#666;
-  --accent:#000;
-  --shadow: rgba(0,0,0,0.06);
-  --radius:12px;
-  --maxw:920px;
-  --gap:18px;
+/* ベースデザイン（モノクロ・スタイリッシュ） */
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #222;
 }
 
-/* reset */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: "Noto Sans JP","Helvetica Neue",Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.6;
+header {
+    background: #000;
+    color: white;
+    padding: 18px;
+    text-align: center;
 }
 
-/* container */
-.container{
-  width:94%;
-  max-width:var(--maxw);
-  margin:28px auto;
-  padding:0 8px;
+.container {
+    width: 92%;
+    max-width: 900px;
+    margin: auto;
+    padding: 25px 10px;
 }
 
-/* header / logo */
-.header{ text-align:center; margin-bottom:10px; }
-.logo-wrap{ display:flex; justify-content:center; margin:22px 0; }
-.header-logo{
-  width:280px; max-width:78%;
-  height:auto;
-  border-radius:10px;
-  box-shadow: 0 12px 30px var(--shadow);
-  background:linear-gradient(180deg,#fff,#f7f7f7);
+/* 見出し */
+h1, h2 {
+    color: #111;
+    font-weight: 600;
 }
 
-/* navbar */
-.navbar{
-  display:flex; justify-content:center; gap:12px; margin:18px 0 24px; flex-wrap:wrap;
-}
-.navbar a{
-  text-decoration:none; padding:10px 14px; border-radius:999px;
-  background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.05);
-  font-weight:700; font-size:0.95rem;
-  transition:all .16s ease;
-}
-.navbar a:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
-
-/* card */
-.card{
-  background:var(--panel);
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow: 0 10px 30px var(--shadow);
-  margin-bottom:20px;
-  border:1px solid rgba(0,0,0,0.03);
+/* --- 質問文エリア（改善済）--- */
+.question-box {
+    background: white;
+    padding: 18px;
+    margin-bottom: 28px;
+    border-radius: 8px;
+    border-left: 4px solid #000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* titles */
-.section-title{ font-size:1.06rem; color:var(--accent); font-weight:800; margin-bottom:12px; }
-.h3{ font-weight:700; margin:10px 0; color:var(--text); }
-
-/* questions accordion (answers page) */
-.q-accordion { border-radius:10px; overflow:hidden; border:1px solid rgba(0,0,0,0.04); background:#fff; }
-.q-acc-btn{
-  width:100%; text-align:left; padding:14px 16px; background:transparent; border:none; cursor:pointer;
-  font-weight:800; font-size:1rem; display:flex; justify-content:space-between; align-items:center;
-}
-.q-acc-btn:focus{ outline:3px solid rgba(0,0,0,0.06); }
-.q-acc-icon{ transition: transform .18s ease; transform:rotate(0deg); opacity:.9; }
-.q-acc-btn[aria-expanded="true"] .q-acc-icon{ transform:rotate(90deg); }
-
-.q-acc-panel{ display:none; padding:14px 16px; border-top:1px solid rgba(0,0,0,0.03); color:var(--text); background:#fff; }
-.q-acc-panel.show{ display:block; }
-
-/* question list inside panel */
-.q-list li{ margin-bottom:10px; color:#111; line-height:1.6; }
-
-/* panelist list */
-.panelist-list .name-btn{
-  display:block; width:100%; text-align:left; padding:16px 16px; border-radius:12px; border:1px solid rgba(0,0,0,0.06);
-  background:transparent; margin:12px 0; font-weight:900; font-size:1.03rem; cursor:pointer;
-  transition: background .12s ease, transform .12s ease;
-}
-.panelist-list .name-btn:hover{ background:rgba(0,0,0,0.02); transform:translateY(-2px); }
-
-/* answer box */
-.answer-box{
-  padding:14px; margin-top:8px; border-radius:10px; background:#fff; border:1px solid rgba(0,0,0,0.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03); color:var(--text);
+.question-list {
+    padding-left: 18px;
 }
 
-/* quiz styles */
-.quiz-card{ padding:16px; border-radius:10px; margin-bottom:18px; background:#fff; border:1px solid rgba(0,0,0,0.04); }
-.q-title{ font-weight:800; margin-bottom:8px; color:#111; }
-.q-row{ margin-bottom:14px; }
-.q-input{ width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-size:1rem; }
-.btn-inline{ display:inline-block; padding:10px 14px; border-radius:10px; background:#111; color:#fff; border:none; cursor:pointer; margin-left:8px; font-weight:700; }
-.result{ display:inline-block; margin-left:10px; font-weight:700; }
+.question-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #222;
+}
 
-/* score box */
-.score-box{ text-align:center; padding:12px; border-radius:8px; margin-top:12px; background:#fafafa; border:1px solid rgba(0,0,0,0.03); }
+/* パネリスト一覧（元の形式） */
+.panelist {
+    margin-bottom: 16px;
+}
 
-/* footer */
-.footer{ text-align:center; color:var(--muted); margin:28px 0 60px; font-size:0.88rem; }
+.panelist-btn {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #444;
+    padding: 13px;
+    text-align: left;
+    font-size: 1.05rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
 
-/* utility */
-.hidden{ display:none !important; }
+.panelist-btn:hover {
+    background: #eee;
+}
 
-/* responsive */
-@media (max-width:640px){
-  .header-logo{ width:220px; }
-  .panelist-list .name-btn{ padding:14px; font-size:1rem; }
-  .q-acc-btn{ padding:12px; font-size:0.98rem; }
+.panelist-content {
+    display: none;
+    background: #fff;
+    margin-top: 6px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.panelist-content p {
+    margin-bottom: 8px;
+}
+
+/* スマホ最適化 */
+@media (max-width: 600px) {
+    .question-list li {
+        font-size: 0.95rem;
+    }
+    .panelist-btn {
+        font-size: 1rem;
+    }
 }
