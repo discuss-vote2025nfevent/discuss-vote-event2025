@@ -5,61 +5,79 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>クイズ - 議論×投票</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* quiz small overrides */
-    .note{ color:#666; font-size:0.95rem; margin-bottom:10px; }
-  </style>
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <div class="logo-wrap">
-        <img src="img/logo.png" class="header-logo" alt="イベントロゴ">
-      </div>
-    </header>
 
-    <nav class="navbar" aria-label="ページメニュー">
+  <header class="global-header">
+    <div class="gh-logo-wrap">
+      <img src="/mnt/data/gr_ロゴ.png" class="gh-logo" alt="イベントロゴ">
+    </div>
+    <nav class="gh-nav" aria-label="サイトメニュー">
       <a href="index.html">トップ</a>
       <a href="issues.html">争点解説</a>
       <a href="answers.html">質問回答</a>
       <a href="glossary.html">用語解説</a>
+      <a href="quiz.html">クイズ</a>
     </nav>
+  </header>
 
+  <main class="container">
     <section class="quiz-card">
       <div class="section-title">クイズ（全13問）</div>
-      <div class="note">記述式・完全一致で判定します。入力は前後の空白を除いて厳密に一致する必要があります。</div>
+      <p class="note">記述式：正誤は完全一致（前後の空白は無視）で判定します。</p>
 
       <form id="quiz-form" onsubmit="return false;">
-        <!-- questions (same as provided) -->
-        <div class="q-row"><div class="q-title">Q1. 公明党のつかさ隆史さんが掲げた３本の柱の３つめは？</div><input class="q-input" id="a1"><button class="btn-inline" type="button" onclick="checkOne(1)">答えを確認する</button><span id="r1" class="result"></span></div>
+        <!-- Q1 -->
+        <div class="q-row">
+          <div class="q-title">Q1. 公明党のつかさ隆史さんが掲げた３本の柱の３つめは？</div>
+          <input class="q-input" id="a1" name="a1" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(1)">答えを確認する</button>
+          <span id="r1" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q2. 参政党の北野ゆうこさんが、SNS規制で最も有効とする対策は？</div><input class="q-input" id="a2"><button class="btn-inline" type="button" onclick="checkOne(2)">答えを確認する</button><span id="r2" class="result"></span></div>
+        <!-- Q2..Q13 (省略せずそのまま実装) -->
+        <div class="q-row">
+          <div class="q-title">Q2. 参政党の北野ゆうこさんが、SNS規制について結果的に最も有効とする対策は何か？</div>
+          <input class="q-input" id="a2" name="a2" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(2)">答えを確認する</button>
+          <span id="r2" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q3. チームみらいの高山さとしさんが主張する給付の形は？（〇〇○○型）</div><input class="q-input" id="a3"><button class="btn-inline" type="button" onclick="checkOne(3)">答えを確認する</button><span id="r3" class="result"></span></div>
+        <div class="q-row">
+          <div class="q-title">Q3. チームみらいの高山さとしさんが主張する給付の形は？（〇〇○○型）</div>
+          <input class="q-input" id="a3" name="a3" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(3)">答えを確認する</button>
+          <span id="r3" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q4. 日本保守党の島田洋一さんは物価高対策について、〇〇よりむしろ何をすべきと主張？</div><input class="q-input" id="a4"><button class="btn-inline" type="button" onclick="checkOne(4)">答えを確認する</button><span id="r4" class="result"></span></div>
+        <div class="q-row">
+          <div class="q-title">Q4. 日本保守党の島田洋一さんは物価高対策について、〇〇よりむしろ何をすべきと主張？</div>
+          <input class="q-input" id="a4" name="a4" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(4)">答えを確認する</button>
+          <span id="r4" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q5. 堀川あきこさんが、原発ゼロに加え計画的撤廃を主張しているのは何？</div><input class="q-input" id="a5"><button class="btn-inline" type="button" onclick="checkOne(5)">答えを確認する</button><span id="r5" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q5. 堀川あきこさんが、原発ゼロに加え計画的撤廃を主張しているのは何？</div><input class="q-input" id="a5" name="a5" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(5)">答えを確認する</button><span id="r5" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q6. 向山好一さんが倍額するべきと主張する予算は？</div><input class="q-input" id="a6"><button class="btn-inline" type="button" onclick="checkOne(6)">答えを確認する</button><span id="r6" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q6. 向山好一さんが倍額するべきと主張する予算は？</div><input class="q-input" id="a6" name="a6" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(6)">答えを確認する</button><span id="r6" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q7. 柳本あきらさんが主張する〇〇税改革とは何の税？</div><input class="q-input" id="a7"><button class="btn-inline" type="button" onclick="checkOne(7)">答えを確認する</button><span id="r7" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q7. 柳本あきらさんが主張する〇〇税改革とは何の税？</div><input class="q-input" id="a7" name="a7" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(7)">答えを確認する</button><span id="r7" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q8. 福島みずほさんが「姓変更の強制は〇〇権の侵害」と述べる〇〇は？</div><input class="q-input" id="a8"><button class="btn-inline" type="button" onclick="checkOne(8)">答えを確認する</button><span id="r8" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q8. 福島みずほさんは選択的夫婦別姓を推進するべきと主張する根拠の一つとして、「結婚によってどちらかの姓への変更が強制されるのは〇〇権の侵害」だと主張している。〇〇は何？</div><input class="q-input" id="a8" name="a8" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(8)">答えを確認する</button><span id="r8" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q9. 泉健太さんが規制対象に挙げる「動画の〇〇化」とは何の〇〇？</div><input class="q-input" id="a9"><button class="btn-inline" type="button" onclick="checkOne(9)">答えを確認する</button><span id="r9" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q9. 泉健太さんは動画の〇〇化規制を主張しています。〇〇に入る語は？</div><input class="q-input" id="a9" name="a9" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(9)">答えを確認する</button><span id="r9" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q10. 前原誠司さんは憲法9条に何を明記すると主張している？</div><input class="q-input" id="a10"><button class="btn-inline" type="button" onclick="checkOne(10)">答えを確認する</button><span id="r10" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q10. 前原誠司さんは憲法９条に○○○を明記すると主張しています。○○○は何？</div><input class="q-input" id="a10" name="a10" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(10)">答えを確認する</button><span id="r10" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q11. れいわ新選組の西郷みなこさんが拡充を主張する大学院の何？</div><input class="q-input" id="a11"><button class="btn-inline" type="button" onclick="checkOne(11)">答えを確認する</button><span id="r11" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q11. れいわ新選組の西郷みなこさんが拡充を主張する大学院の何？</div><input class="q-input" id="a11" name="a11" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(11)">答えを確認する</button><span id="r11" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q12. アルゴリズムで近い情報ばかりが届く現象の名称は？</div><input class="q-input" id="a12"><button class="btn-inline" type="button" onclick="checkOne(12)">答えを確認する</button><span id="r12" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q12. アルゴリズムにより自分の関心に近い情報ばかりが届く現象を何という？</div><input class="q-input" id="a12" name="a12" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(12)">答えを確認する</button><span id="r12" class="result"></span></div>
 
-        <div class="q-row"><div class="q-title">Q13. 所得に関係なく一律の税で低所得者に重くのしかかる性質の名称は？</div><input class="q-input" id="a13"><button class="btn-inline" type="button" onclick="checkOne(13)">答えを確認する</button><span id="r13" class="result"></span></div>
+        <div class="q-row"><div class="q-title">Q13. 消費税のように、一律の税率が適用され低所得者ほど負担率が高くなる性質を何という？</div><input class="q-input" id="a13" name="a13" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(13)">答えを確認する</button><span id="r13" class="result"></span></div>
 
-        <div style="margin-top:12px; text-align:center;">
-          <button id="scoreBtn" class="btn-inline" type="button" onclick="scoreAll()" style="background:#007acc">全問を採点する</button>
-          <div id="scoreBox" class="score-box" style="display:none; margin-top:12px;"></div>
+        <div style="text-align:center; margin-top:12px;">
+          <button class="btn-inline" onclick="scoreAll()" style="background:#007acc">全問を採点する</button>
+          <div id="scoreBox" class="score-box" style="display:none;"></div>
         </div>
       </form>
     </section>
@@ -68,31 +86,24 @@
   </main>
 
 <script>
-  const answers = [
-    "共生社会","リテラシー教育","プッシュ","給付","石炭火力",
-    "科学技術振興予算","消費","人格","収益","自衛権",
-    "研究費","フィルターバブル","逆進性"
-  ];
+  const answers = ["共生社会","リテラシー教育","プッシュ","給付","石炭火力","科学技術振興予算","消費","人格","収益","自衛権","研究費","フィルターバブル","逆進性"];
 
   function checkOne(n){
-    const idx = n-1;
-    const input = document.getElementById('a'+n);
-    const res = document.getElementById('r'+n);
-    if(!input) return;
-    const v = input.value.trim();
-    if(v.length===0){ res.textContent = "回答を入力してください"; res.style.color="#666"; return; }
-    if(v === answers[idx]){ res.textContent = "正解"; res.style.color="green"; }
-    else{ res.textContent = "不正解"; res.style.color="red"; }
+    const v = (document.getElementById('a'+n).value || "").trim();
+    const r = document.getElementById('r'+n);
+    if(!v){ r.textContent="回答を入力してください"; r.className="result"; r.style.color="#666"; return; }
+    if(v === answers[n-1]){ r.textContent="正解"; r.className="result ok"; }
+    else{ r.textContent="不正解"; r.className="result ng"; }
   }
 
   function scoreAll(){
-    let correct=0;
+    let correct = 0;
     for(let i=1;i<=13;i++){
       const v = (document.getElementById('a'+i).value || "").trim();
-      const res = document.getElementById('r'+i);
-      if(v === answers[i-1]){ correct++; if(res){ res.textContent="正解"; res.style.color="green"; } }
-      else if(v===""){ if(res){ res.textContent="（未入力）"; res.style.color="#666"; } }
-      else{ if(res){ res.textContent="不正解"; res.style.color="red"; } }
+      const r = document.getElementById('r'+i);
+      if(v === answers[i-1]){ correct++; r.textContent="正解"; r.className="result ok"; }
+      else if(v === ""){ r.textContent="（未入力）"; r.className="result"; r.style.color="#666"; }
+      else{ r.textContent="不正解"; r.className="result ng"; }
     }
     const box = document.getElementById('scoreBox');
     box.style.display='block';
