@@ -263,3 +263,8 @@ body{
   color:#000 !important;
   font-weight:900;
 }
+
+.gh-nav a{
+  flex: 1 1 calc(33% - 12px);
+  text-align:center;
+}
