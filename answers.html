@@ -7,28 +7,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <div class="title">質問回答</div>
-      <div class="subtitle">以下の質問に関して、各パネリストの回答を掲載しています。名前をタップして回答を表示してください。</div>
-    </header>
 
-    <nav class="navbar" aria-label="ページメニュー">
+  <header class="global-header">
+    <div class="gh-logo-wrap">
+      <img src="/mnt/data/gr_ロゴ.png" class="gh-logo" alt="イベントロゴ">
+    </div>
+    <nav class="gh-nav" aria-label="サイトメニュー">
       <a href="index.html">トップ</a>
       <a href="issues.html">争点解説</a>
+      <a href="answers.html">質問回答</a>
       <a href="glossary.html">用語解説</a>
       <a href="quiz.html">クイズ</a>
     </nav>
+  </header>
 
-    <!-- 質問文を一つにまとめたアコーディオン -->
+  <main class="container">
     <section class="card">
       <div class="section-title">質問文</div>
-      <div class="q-accordion" id="qAccordion">
-        <button class="q-acc-btn" aria-expanded="false" data-target="qPanel">
+
+      <div class="accordion">
+        <button class="acc-btn" aria-expanded="false" data-target="qpanel">
           <span>▼ 質問（タップで開閉）</span>
-          <span class="q-acc-icon">▶</span>
+          <span class="acc-icon">▶</span>
         </button>
-        <div id="qPanel" class="q-acc-panel">
+        <div id="qpanel" class="acc-panel">
           <ul class="q-list">
             <li><strong>Q1：</strong>物価高対策について、ご登壇者ご自身の政策の理念を的確に表現するキャッチコピーをお書きください。</li>
             <li><strong>Q2：</strong>物価高対策について、ご登壇者ご自身の政策の狙い又は利点をお書きください。</li>
@@ -42,13 +44,12 @@
       </div>
     </section>
 
-    <!-- パネリスト一覧（ボタン大きめ） -->
     <section class="card">
       <div class="section-title">パネリスト一覧（タップして回答を表示）</div>
 
       <div class="panelist-list">
-        <!-- 繰り返しブロック（複製してp-2..p-11を作成） -->
-        <button class="name-btn panelist" data-target="p-1" aria-expanded="false">パネリスト1</button>
+        <!-- 例：パネリスト1 -->
+        <button class="name-btn" data-target="p-1" aria-expanded="false">パネリスト1</button>
         <div id="p-1" class="answer-box" hidden>
           <p><strong>Q1：</strong>（ここに回答）</p>
           <p><strong>Q2：</strong>（ここに回答）</p>
@@ -59,7 +60,8 @@
           <p><strong>Q7：</strong>（ここに回答）</p>
         </div>
 
-        <!-- 複製してパネリスト2..11 -->
+        <!-- 複製して p-2 ... p-11 を作成 -->
+
       </div>
     </section>
 
@@ -67,33 +69,34 @@
   </main>
 
 <script>
-/* 質問アコーディオン */
-document.querySelectorAll('.q-acc-btn').forEach(btn=>{
+/* accordion (answers & glossary) */
+document.querySelectorAll('.acc-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const targetId = btn.dataset.target;
-    const panel = document.getElementById(targetId);
+    const panel = btn.nextElementSibling;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    if(panel){
-      panel.classList.toggle('show');
-      // rotate icon
-      const icon = btn.querySelector('.q-acc-icon');
-      if(icon) icon.style.transform = panel.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
-    }
+    if(panel) panel.classList.toggle('show');
+    const icon = btn.querySelector('.acc-icon');
+    if(icon) icon.style.transform = panel.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
   });
 });
 
-/* パネリストの回答トグル（名前ボタン） */
-document.querySelectorAll('.panelist-list .name-btn, .name-btn').forEach(btn=>{
+/* panelist toggle: keep space handling - use hidden attribute but preserve spacing by scroll into view only */
+document.querySelectorAll('.panelist-list .name-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    const target = btn.dataset.target;
-    if(!target) return;
-    const el = document.getElementById(target);
+    const id = btn.dataset.target;
+    if(!id) return;
+    const el = document.getElementById(id);
     if(!el) return;
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    el.hidden = expanded;
-    if(!expanded) el.scrollIntoView({behavior:'smooth', block:'start'});
+    if(expanded){
+      el.hidden = true;
+    } else {
+      el.hidden = false;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
   });
 });
 </script>
