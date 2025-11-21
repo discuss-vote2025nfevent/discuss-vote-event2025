@@ -255,3 +255,11 @@ body{
   .header-logo{ width:180px; }  /* スマホ用ロゴサイズ */
   .panelist-list .name-btn{ padding:14px; font-size:1rem; }
 }
+
+/* 全ページ共通：現在のページのボタンをグレーにする */
+.navbar a.active,
+.gh-nav a.active {
+  background:#e0e0e0 !important;
+  color:#000 !important;
+  font-weight:900;
+}
