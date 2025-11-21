@@ -1,4 +1,4 @@
-/* style.css - Monochrome stylish theme, mobile-first, enhanced tap targets */
+/* style.css - unified header + accordion + quiz styles (monochrome, mobile-first) */
 
 :root{
   --bg:#ffffff;
@@ -28,32 +28,22 @@ body{
 .container{
   width:94%;
   max-width:var(--maxw);
-  margin:28px auto;
-  padding:0 8px;
+  margin:20px auto;
+  padding:0 10px;
 }
 
-/* header / logo */
-.header{ text-align:center; margin-bottom:10px; }
-.logo-wrap{ display:flex; justify-content:center; margin:22px 0; }
-.header-logo{
-  width:280px; max-width:78%;
-  height:auto;
-  border-radius:10px;
-  box-shadow: 0 12px 30px var(--shadow);
-  background:linear-gradient(180deg,#fff,#f7f7f7);
-}
+/* global header */
+.global-header{ text-align:center; margin-bottom:8px; }
+.gh-logo-wrap{ display:flex; justify-content:center; margin:8px 0 12px; }
+.gh-logo{ width:260px; max-width:78%; height:auto; border-radius:10px; box-shadow:0 12px 30px var(--shadow); }
 
-/* navbar */
-.navbar{
-  display:flex; justify-content:center; gap:12px; margin:18px 0 24px; flex-wrap:wrap;
+.gh-nav{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.gh-nav a{
+  text-decoration:none; padding:10px 14px; border-radius:999px; background:#fff;
+  border:1px solid rgba(0,0,0,0.06); color:var(--text); font-weight:700; font-size:0.94rem;
+  transition:all .15s ease;
 }
-.navbar a{
-  text-decoration:none; padding:10px 14px; border-radius:999px;
-  background:transparent; color:var(--text); border:1px solid rgba(0,0,0,0.05);
-  font-weight:700; font-size:0.95rem;
-  transition:all .16s ease;
-}
-.navbar a:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+.gh-nav a:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,0.05); }
 
 /* card */
 .card{
@@ -64,48 +54,54 @@ body{
   margin-bottom:20px;
   border:1px solid rgba(0,0,0,0.03);
 }
-
-/* titles */
 .section-title{ font-size:1.06rem; color:var(--accent); font-weight:800; margin-bottom:12px; }
-.h3{ font-weight:700; margin:10px 0; color:var(--text); }
 
-/* questions accordion (answers page) */
-.q-accordion { border-radius:10px; overflow:hidden; border:1px solid rgba(0,0,0,0.04); background:#fff; }
-.q-acc-btn{
-  width:100%; text-align:left; padding:14px 16px; background:transparent; border:none; cursor:pointer;
+/* unified accordion (questions & glossary) */
+.accordion {
+  border-radius:10px; overflow:hidden; border:1px solid rgba(0,0,0,0.08); background:#fff; margin-bottom:12px;
+}
+.acc-btn{
+  width:100%; padding:14px 16px; text-align:left; background:transparent; border:none; cursor:pointer;
   font-weight:800; font-size:1rem; display:flex; justify-content:space-between; align-items:center;
 }
-.q-acc-btn:focus{ outline:3px solid rgba(0,0,0,0.06); }
-.q-acc-icon{ transition: transform .18s ease; transform:rotate(0deg); opacity:.9; }
-.q-acc-btn[aria-expanded="true"] .q-acc-icon{ transform:rotate(90deg); }
+.acc-btn:focus{ outline:3px solid rgba(0,0,0,0.06); }
+.acc-icon{ transition: transform .18s ease; transform:rotate(0deg); opacity:.9; }
+.acc-btn[aria-expanded="true"] .acc-icon{ transform:rotate(90deg); }
 
-.q-acc-panel{ display:none; padding:14px 16px; border-top:1px solid rgba(0,0,0,0.03); color:var(--text); background:#fff; }
-.q-acc-panel.show{ display:block; }
+.acc-panel{ display:none; padding:14px 16px; border-top:1px solid rgba(0,0,0,0.06); color:var(--text); background:#fff; }
+.acc-panel.show{ display:block; }
 
-/* question list inside panel */
+/* question list */
 .q-list li{ margin-bottom:10px; color:#111; line-height:1.6; }
 
-/* panelist list */
-.panelist-list .name-btn{
+/* panelist button */
+.name-btn{
   display:block; width:100%; text-align:left; padding:16px 16px; border-radius:12px; border:1px solid rgba(0,0,0,0.06);
-  background:transparent; margin:12px 0; font-weight:900; font-size:1.03rem; cursor:pointer;
+  background:#fff; margin:12px 0; font-weight:900; font-size:1.05rem; cursor:pointer;
   transition: background .12s ease, transform .12s ease;
 }
-.panelist-list .name-btn:hover{ background:rgba(0,0,0,0.02); transform:translateY(-2px); }
+.name-btn:hover{ background:rgba(0,0,0,0.03); transform:translateY(-2px); }
 
-/* answer box */
+/* answer box (keeps space when hidden) */
 .answer-box{
   padding:14px; margin-top:8px; border-radius:10px; background:#fff; border:1px solid rgba(0,0,0,0.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03); color:var(--text);
+  box-shadow:0 8px 20px rgba(0,0,0,0.03); color:var(--text);
 }
 
-/* quiz styles */
+/* To prevent collapsing layout when hidden, use visibility + height animations via JS.
+   .collapsed will be applied to hide visually but preserve flow if needed. */
+
+/* quiz */
 .quiz-card{ padding:16px; border-radius:10px; margin-bottom:18px; background:#fff; border:1px solid rgba(0,0,0,0.04); }
 .q-title{ font-weight:800; margin-bottom:8px; color:#111; }
 .q-row{ margin-bottom:14px; }
 .q-input{ width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-size:1rem; }
-.btn-inline{ display:inline-block; padding:10px 14px; border-radius:10px; background:#111; color:#fff; border:none; cursor:pointer; margin-left:8px; font-weight:700; }
-.result{ display:inline-block; margin-left:10px; font-weight:700; }
+.btn-inline{ display:inline-block; padding:10px 14px; border-radius:10px; background:#000; color:#fff; border:none; cursor:pointer; margin-left:8px; font-weight:700; }
+.result{ display:inline-block; margin-left:10px; font-weight:700; padding:6px 10px; border-radius:8px; }
+
+/* result styles */
+.result.ok{ background:#e8ffe8; border:1px solid #8cd48c; color:#117a11; }
+.result.ng{ background:#ffecec; border:1px solid #e38a8a; color:#b30000; }
 
 /* score box */
 .score-box{ text-align:center; padding:12px; border-radius:8px; margin-top:12px; background:#fafafa; border:1px solid rgba(0,0,0,0.03); }
@@ -113,12 +109,9 @@ body{
 /* footer */
 .footer{ text-align:center; color:var(--muted); margin:28px 0 60px; font-size:0.88rem; }
 
-/* utility */
-.hidden{ display:none !important; }
-
 /* responsive */
 @media (max-width:640px){
-  .header-logo{ width:220px; }
-  .panelist-list .name-btn{ padding:14px; font-size:1rem; }
-  .q-acc-btn{ padding:12px; font-size:0.98rem; }
+  .gh-logo{ width:200px; }
+  .name-btn{ font-size:1rem; padding:14px; }
+  .acc-btn{ padding:12px; font-size:0.98rem; }
 }
