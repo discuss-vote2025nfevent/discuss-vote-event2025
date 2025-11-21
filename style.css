@@ -1,6 +1,8 @@
-/* =========================================
-   Global Variables
-========================================= */
+/* style.css - unified header + unified accordion */
+
+/* ------------------------------------
+   基本カラー
+------------------------------------ */
 :root{
   --bg:#ffffff;
   --panel:#fafafa;
@@ -13,9 +15,7 @@
   --gap:18px;
 }
 
-/* =========================================
-   Reset
-========================================= */
+/* reset */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -27,9 +27,7 @@ body{
   line-height:1.6;
 }
 
-/* =========================================
-   Layout Container
-========================================= */
+/* container */
 .container{
   width:94%;
   max-width:var(--maxw);
@@ -37,60 +35,44 @@ body{
   padding:0 8px;
 }
 
-/* =========================================
-   Header & Logo
-========================================= */
-.header{ text-align:center; margin-bottom:8px; }
-.logo-wrap{ display:flex; justify-content:center; margin:16px 0 6px; }
+/* ------------------------------------
+   Header + Logo + Global Navigation
+------------------------------------ */
+.header{ text-align:center; margin-bottom:10px; }
+
+.logo-wrap{ display:flex; justify-content:center; margin:22px 0 14px; }
 
 .header-logo{
-  width:210px;     /* 🔥 少し小さく（元は260〜280px） */
-  max-width:75%;
+  width:280px; max-width:78%;
   height:auto;
-  border-radius:8px;
-  box-shadow: 0 10px 24px var(--shadow);
+  border-radius:10px;
+  box-shadow: 0 12px 30px var(--shadow);
   background:linear-gradient(180deg,#fff,#f7f7f7);
 }
 
-/* =========================================
-   Navigation Bar（5つボタン・2段構成）
-========================================= */
-.gh-nav{
-  display:flex;
-  flex-wrap:wrap;       /* 🔥 自然に折り返す */
-  justify-content:center;
-  gap:8px 10px;         /* 🔥 タテヨコの余白拡大 */
-  margin:20px 0 28px;
+.navbar{
+  display:flex; justify-content:center; gap:12px; margin:6px 0 26px;
+  flex-wrap:wrap;
 }
-
-.gh-nav a{
+.navbar a{
   text-decoration:none;
-  padding:10px 18px;    /* 🔥 少し縦に広くしてタップしやすく */
+  padding:10px 16px;
   border-radius:999px;
   background:#fff;
+  border:1px solid rgba(0,0,0,0.06);
   color:var(--text);
-  border:1px solid rgba(0,0,0,0.08);
   font-weight:700;
-  font-size:0.95rem;
-  white-space:nowrap;
-  transition:all .16s ease;
+  font-size:0.94rem;
+  transition:all .15s ease;
+}
+.navbar a:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
 }
 
-/* 🔥 開いているページ（active）の強調 */
-.gh-nav a.active{
-  background:#e0e0e0;
-  color:#000;
-  font-weight:900;
-}
-
-.gh-nav a:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.08);
-}
-
-/* =========================================
-   Card (White Box)
-========================================= */
+/* ------------------------------------
+   Card
+------------------------------------ */
 .card{
   background:var(--panel);
   border-radius:var(--radius);
@@ -100,122 +82,115 @@ body{
   border:1px solid rgba(0,0,0,0.03);
 }
 
-/* Titles */
 .section-title{
   font-size:1.1rem;
   font-weight:800;
+  margin-bottom:14px;
   color:#000;
-  margin-bottom:12px;
 }
 
-/* =========================================
-   Accordion
-========================================= */
-.acc-wrap{
+/* ------------------------------------
+   ★ アコーディオン（質問回答 / 用語解説）
+   → 両方このデザインに統一！
+------------------------------------ */
+.accordion {
   border-radius:10px;
-  border:1px solid rgba(0,0,0,0.07);
   overflow:hidden;
-  margin-bottom:12px;
+  border:1px solid rgba(0,0,0,0.08);
   background:#fff;
+  margin-bottom:12px;
 }
 
 .acc-btn{
   width:100%;
+  padding:16px;
+  text-align:left;
   background:#fff;
   border:none;
-  text-align:left;
-  padding:16px;
+  cursor:pointer;
   font-size:1rem;
   font-weight:800;
-  cursor:pointer;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-
-.acc-btn:hover{ background:#f5f5f5; }
-
-.acc-icon{ transition:.2s; }
-
-.acc-btn[aria-expanded="true"] .acc-icon{
+.acc-btn .icon{
+  transition:.2s;
+  transform:rotate(0deg);
+  opacity:.9;
+}
+.acc-btn[aria-expanded="true"] .icon{
   transform:rotate(90deg);
 }
 
 .acc-panel{
   display:none;
-  padding:16px;
+  padding:14px 16px;
   border-top:1px solid rgba(0,0,0,0.06);
-  line-height:1.65;
 }
-
 .acc-panel.show{
   display:block;
 }
 
-/* =========================================
-   Panelist List
-========================================= */
-.panelist-list .name-btn{
-  display:block;
-  width:100%;
-  padding:16px;
-  margin:12px 0;
-  font-size:1.05rem;
-  font-weight:900;
-  text-align:left;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.1);
-  background:#fff;
-  cursor:pointer;
-  transition:.15s ease;
+/* 用語解説の本文 */
+.gl-body{
+  color:#111;
+  line-height:1.6;
 }
 
-.panelist-list .name-btn:hover{
-  background:#f2f2f2;
+/* ------------------------------------
+   質問回答：パネリストボタン
+------------------------------------ */
+.name-btn{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:15px 16px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:#fff;
+  margin:12px 0;
+  font-weight:900;
+  font-size:1.05rem;
+  cursor:pointer;
+  transition:.12s;
+}
+.name-btn:hover{
+  background:rgba(0,0,0,0.03);
   transform:translateY(-2px);
 }
 
+/* answer box */
 .answer-box{
-  padding:16px;
-  margin:10px 0 20px;
+  padding:14px;
+  margin-top:8px;
   border-radius:10px;
   background:#fff;
-  box-shadow:0 8px 18px rgba(0,0,0,0.03);
-  border:1px solid rgba(0,0,0,0.06);
-  line-height:1.7;
+  border:1px solid rgba(0,0,0,0.03);
+  box-shadow:0 8px 20px rgba(0,0,0,0.03);
 }
 
-/* =========================================
-   Quiz Styles
-========================================= */
+/* ------------------------------------
+   Quiz
+------------------------------------ */
 .quiz-card{
   padding:16px;
-  margin-bottom:22px;
-  background:#fff;
-  border:1px solid rgba(0,0,0,0.06);
   border-radius:10px;
+  margin-bottom:18px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.04);
 }
-
-.q-title{
-  font-weight:800;
-  margin-bottom:10px;
-  font-size:1.05rem;
-  line-height:1.4;
-}
-
+.q-title{ font-weight:800; margin-bottom:8px; }
 .q-input{
-  width:100%;
-  padding:12px;
-  font-size:1rem;
+  width:100%; padding:12px;
   border-radius:8px;
-  border:1px solid #ddd;
-  margin-top:6px;
+  border:1px solid #ccc;
 }
-
 .btn-inline{
+  display:inline-block;
   padding:10px 14px;
   border-radius:10px;
-  background:#111;
+  background:#000;
   color:#fff;
   border:none;
   cursor:pointer;
@@ -223,43 +198,17 @@ body{
   font-weight:700;
 }
 
-.result{
-  margin-left:12px;
-  font-weight:700;
-  font-size:1rem;
-}
-
-/* 統一丸記号 */
-.quiz-card li{
-  list-style:none;
-}
-.quiz-card li::before{
-  content:"○ ";
-  font-size:1.15em;
-}
-
-/* =========================================
-   Footer
-========================================= */
+/* footer */
 .footer{
   text-align:center;
   color:var(--muted);
-  margin:28px 0 60px;
+  margin:28px 0 50px;
   font-size:0.88rem;
 }
 
-/* =========================================
-   Responsive
-========================================= */
+/* responsive */
 @media (max-width:640px){
-  .header-logo{ width:180px; }  /* スマホ用ロゴサイズ */
-  .panelist-list .name-btn{ padding:14px; font-size:1rem; }
-}
-
-/* 全ページ共通：現在のページのボタンをグレーにする */
-.navbar a.active,
-.gh-nav a.active {
-  background:#e0e0e0 !important;
-  color:#000 !important;
-  font-weight:900;
+  .header-logo{ width:220px; }
+  .acc-btn{ padding:14px; font-size:0.98rem; }
+  .name-btn{ font-size:1rem; padding:14px; }
 }
