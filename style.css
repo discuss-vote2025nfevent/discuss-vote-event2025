@@ -256,6 +256,11 @@ body{
   .panelist-list .name-btn{ padding:14px; font-size:1rem; }
 }
 
+.gh-nav a{
+  flex: 1 1 calc(33% - 12px);
+  text-align:center;
+}
+
 /* 全ページ共通：現在のページのボタンをグレーにする */
 .navbar a.active,
 .gh-nav a.active {
@@ -264,7 +269,3 @@ body{
   font-weight:900;
 }
 
-.gh-nav a{
-  flex: 1 1 calc(33% - 12px);
-  text-align:center;
-}
