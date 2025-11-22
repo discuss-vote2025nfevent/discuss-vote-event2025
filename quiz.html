@@ -27,15 +27,16 @@
       <p class="note">記述式：正誤は完全一致（前後の空白は無視）で判定します。</p>
 
       <form id="quiz-form" onsubmit="return false;">
+
         <!-- Q1 -->
         <div class="q-row">
-          <div class="q-title">Q1. 公明党のつかさ隆史さんが掲げた３本の柱の３つ目は？</div>
+          <div class="q-title">Q1. 公明党のつかさ隆史さんが、誰もが安心して生き、希望を持てる社会を実現するために掲げた３本の柱は、「持続可能な成長」、「人間主義」と何か？</div>
           <input class="q-input" id="a1" name="a1" placeholder="解答を入力">
           <button class="btn-inline" type="button" onclick="checkOne(1)">答えを確認する</button>
           <span id="r1" class="result"></span>
         </div>
 
-        <!-- Q2..Q13 (省略せずそのまま実装) -->
+        <!-- Q2 -->
         <div class="q-row">
           <div class="q-title">Q2. 参政党の北野ゆうこさんが、SNS規制について結果的に最も有効とする対策は何か？</div>
           <input class="q-input" id="a2" name="a2" placeholder="解答を入力">
@@ -43,37 +44,93 @@
           <span id="r2" class="result"></span>
         </div>
 
+        <!-- Q3 -->
         <div class="q-row">
-          <div class="q-title">Q3. チームみらいの高山さとしさんが主張する給付の形は？（〇○〇○型）</div>
+          <div class="q-title">Q3. チームみらいの高山さとしさんは物価高対策として、迅速で公平な生活支援を行うために〇〇○○型の給付の実現を主張している。</div>
           <input class="q-input" id="a3" name="a3" placeholder="解答を入力">
           <button class="btn-inline" type="button" onclick="checkOne(3)">答えを確認する</button>
           <span id="r3" class="result"></span>
         </div>
 
+        <!-- Q4 -->
         <div class="q-row">
-          <div class="q-title">Q4. 日本保守党の島田洋一さんは物価高対策について、〇〇よりむしろ何をすべきと主張？</div>
+          <div class="q-title">Q4. 日本保守党の島田洋一さんは物価高対策について、〇〇よりむしろストレートな減税をすべきと主張している。</div>
           <input class="q-input" id="a4" name="a4" placeholder="解答を入力">
           <button class="btn-inline" type="button" onclick="checkOne(4)">答えを確認する</button>
           <span id="r4" class="result"></span>
         </div>
 
-        <div class="q-row"><div class="q-title">Q5. 堀川あきこさんが、原発ゼロに加え計画的撤廃を主張しているのは何？</div><input class="q-input" id="a5" name="a5" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(5)">答えを確認する</button><span id="r5" class="result"></span></div>
+        <!-- Q5 -->
+        <div class="q-row">
+          <div class="q-title">Q5. 日本共産党の堀川あきこさんが、最も伝えたい政策は気候変動対策だが、すみやかな原発ゼロに加え、何からの計画的撤廃を主張しているか。</div>
+          <input class="q-input" id="a5" name="a5" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(5)">答えを確認する</button>
+          <span id="r5" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q6. 向山好一さんが倍額するべきと主張する予算は？</div><input class="q-input" id="a6" name="a6" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(6)">答えを確認する</button><span id="r6" class="result"></span></div>
+        <!-- Q6 -->
+        <div class="q-row">
+          <div class="q-title">Q6. 国民民主党の向山好一さんは世界から再び尊敬される技術とヒトを取り戻すために倍額するべきと主張する予算は？</div>
+          <input class="q-input" id="a6" name="a6" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(6)">答えを確認する</button>
+          <span id="r6" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q7. 柳本あきらさんが主張する〇〇税改革とは何の税？</div><input class="q-input" id="a7" name="a7" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(7)">答えを確認する</button><span id="r7" class="result"></span></div>
+        <!-- Q7 -->
+        <div class="q-row">
+          <div class="q-title">Q7. 自由民主党の柳本あきらさんは物価高対策として、現役世代の可処分所得の増加のために〇〇税改革を主張している。</div>
+          <input class="q-input" id="a7" name="a7" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(7)">答えを確認する</button>
+          <span id="r7" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q8. 福島みずほさんは選択的夫婦別姓を推進するべきと主張する根拠の一つとして、「結婚によってどちらかの姓への変更が強制されるのは〇〇権の侵害」だと主張している。〇〇は何？</div><input class="q-input" id="a8" name="a8" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(8)">答えを確認する</button><span id="r8" class="result"></span></div>
+        <!-- Q8 -->
+        <div class="q-row">
+          <div class="q-title">Q8. 社会民主党の福島みずほさんは選択的夫婦別姓を推進するべきと主張する根拠の一つとして、「結婚によってどちらかの姓への変更が強制されるのは〇〇権の侵害」だと主張している。</div>
+          <input class="q-input" id="a8" name="a8" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(8)">答えを確認する</button>
+          <span id="r8" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q9. 泉健太さんは動画の〇〇化規制を主張しています。〇〇に入る語は？</div><input class="q-input" id="a9" name="a9" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(9)">答えを確認する</button><span id="r9" class="result"></span></div>
+        <!-- Q9 -->
+        <div class="q-row">
+          <div class="q-title">Q9. 立憲民主党の泉健太さんはSNS規制について、民主主義と投票行動に不当に影響を与えるものへの規制の具体例として動画の〇〇化規制を主張する。</div>
+          <input class="q-input" id="a9" name="a9" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(9)">答えを確認する</button>
+          <span id="r9" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q10. 前原誠司さんは憲法９条に〇〇〇を明記すると主張しています。〇〇〇は何？</div><input class="q-input" id="a10" name="a10" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(10)">答えを確認する</button><span id="r10" class="result"></span></div>
+        <!-- Q10 -->
+        <div class="q-row">
+          <div class="q-title">Q10. 日本維新の会の前原誠司さんは安全保障において、憲法９条に○○〇を明記すると主張している。</div>
+          <input class="q-input" id="a10" name="a10" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(10)">答えを確認する</button>
+          <span id="r10" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q11. れいわ新選組の西郷みなこさんが拡充を主張する大学院の何？</div><input class="q-input" id="a11" name="a11" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(11)">答えを確認する</button><span id="r11" class="result"></span></div>
+        <!-- Q11 -->
+        <div class="q-row">
+          <div class="q-title">Q11. れいわ新選組の西郷みなこさんは、「若者こそが貴重な宝」と考え、教育のオール無償化、奨学金の帳消し、大学院の○○○の拡充を主張している。</div>
+          <input class="q-input" id="a11" name="a11" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(11)">答えを確認する</button>
+          <span id="r11" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q12. アルゴリズムにより自分の関心に近い情報ばかりが届く現象を何という？</div><input class="q-input" id="a12" name="a12" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(12)">答えを確認する</button><span id="r12" class="result"></span></div>
+        <!-- Q12 -->
+        <div class="q-row">
+          <div class="q-title">Q12. SNSのアルゴリズムにより、自分の関心や考えに近い情報ばかりが届き、異なる意見に接する機会が減る現象を○○○○○○○○という。</div>
+          <input class="q-input" id="a12" name="a12" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(12)">答えを確認する</button>
+          <span id="r12" class="result"></span>
+        </div>
 
-        <div class="q-row"><div class="q-title">Q13. 消費税のように、一律の税率が適用され低所得者ほど負担率が高くなる性質を何という？</div><input class="q-input" id="a13" name="a13" placeholder="解答を入力"><button class="btn-inline" type="button" onclick="checkOne(13)">答えを確認する</button><span id="r13" class="result"></span></div>
+        <!-- Q13 -->
+        <div class="q-row">
+          <div class="q-title">Q13. 消費税のように、所得額に関わらず一律の税率が適用され、低所得者ほど負担率が高くなる性質を○○〇という。</div>
+          <input class="q-input" id="a13" name="a13" placeholder="解答を入力">
+          <button class="btn-inline" type="button" onclick="checkOne(13)">答えを確認する</button>
+          <span id="r13" class="result"></span>
+        </div>
 
         <div style="text-align:center; margin-top:12px;">
           <button class="btn-inline" onclick="scoreAll()" style="background:#007acc">全問を採点する</button>
